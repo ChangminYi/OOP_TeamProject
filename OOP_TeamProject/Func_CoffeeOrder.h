@@ -7,7 +7,7 @@
 #ifndef FUNC_COFFEEORDER
 #define FUNC_COFFEEORDER
 
-
+void coffeeOrderSelected();
 
 
 #endif // !COFFEEORDERFUNC

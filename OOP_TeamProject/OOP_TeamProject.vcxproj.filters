@@ -30,6 +30,12 @@
     <ClCompile Include="Order.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Func_DataSetting.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Func_CoffeeOrder.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CoffeeBean.h">

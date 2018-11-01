@@ -68,10 +68,10 @@ bool selectMainFunction() {
 
 	switch (argi) {
 	case 1:
-		//function for coffee order
+		coffeeOrderSelected();
 		break;
 	case 2:
-		//function for data setting
+		dataSettingSelected();
 		break;
 	case 3:
 		return false;

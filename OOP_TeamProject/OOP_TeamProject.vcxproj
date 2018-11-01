@@ -117,6 +117,8 @@
   <ItemGroup>
     <ClCompile Include="Coffee.cpp" />
     <ClCompile Include="CoffeeBean.cpp" />
+    <ClCompile Include="Func_CoffeeOrder.cpp" />
+    <ClCompile Include="Func_DataSetting.cpp" />
     <ClCompile Include="Ingredient.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Order.cpp" />
