@@ -1,10 +1,10 @@
 #include "Ingredient.h"
 
-void Ingredient::setName(std::string _name) {
+void Ingredient::setName(const std::string _name) {
 	this->name = _name;
 }
 
-void Ingredient::setCost(unsigned int _cost) {
+void Ingredient::setCost(const unsigned int _cost) {
 	this->cost = _cost;
 }
 

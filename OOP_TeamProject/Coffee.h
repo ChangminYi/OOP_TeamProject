@@ -25,15 +25,15 @@ private:
 	void setCost();
 
 public:
-	Coffee(std::string _name) :name(_name) {};
-	Coffee(std::string _name, std::vector<CoffeeBean> _beanList) :name(_name), beanList(_beanList) {};
-	Coffee(std::string _name, std::vector<Ingredient> _ingreList) :name(_name), ingreList(_ingreList) {};
-	Coffee(std::string _name, std::vector<CoffeeBean> _beanList, std::vector<Ingredient> _ingreList) :name(_name), beanList(_beanList), ingreList(_ingreList) {};
+	Coffee(const std::string _name) :name(_name) { this->setCost(); };
+	Coffee(const std::string _name, const std::vector<CoffeeBean> _beanList) :name(_name), beanList(_beanList) { this->setCost(); };
+	Coffee(const std::string _name, const std::vector<Ingredient> _ingreList) :name(_name), ingreList(_ingreList) { this->setCost(); };
+	Coffee(const std::string _name, const std::vector<CoffeeBean> _beanList, const std::vector<Ingredient> _ingreList) :name(_name), beanList(_beanList), ingreList(_ingreList) { this->setCost(); };
 
-	void setName(std::string _name);
+	void setName(const std::string _name);
 
-	void addBeanList(CoffeeBean _newBean);
-	void addIngreList(Ingredient _newIngredient);
+	void addBeanList(const CoffeeBean _newBean);
+	void addIngreList(const Ingredient _newIngredient);
 
 	void removeBeanList();
 	void removeIngreList();

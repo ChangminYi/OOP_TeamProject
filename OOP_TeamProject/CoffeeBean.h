@@ -13,10 +13,10 @@ private:
 	unsigned int cost;
 
 public:
-	CoffeeBean(std::string _name, int _cost) :name(_name), cost(_cost) {};
+	CoffeeBean(const std::string _name, const unsigned int _cost) :name(_name), cost(_cost) {};
 	
-	void setName(std::string _name);
-	void setCost(unsigned int _cost);
+	void setName(const std::string _name);
+	void setCost(const unsigned int _cost);
 
 	std::string getName() const;
 	unsigned int getCost() const;

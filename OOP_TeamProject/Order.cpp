@@ -4,19 +4,19 @@ void Order::setCost() {
 	int temp = this->orderdCoffee.getCost();
 
 	for (int i = 0; i < this->optionalBean.size(); i++) {
-		temp += optionalBean.at(i).getCost();
+		temp += this->optionalBean.at(i).getCost();
 	}
 
 	for (int i = 0; i < this->optionalIngre.size(); i++) {
-		temp += optionalIngre.at(i).getCost();
+		temp += this->optionalIngre.at(i).getCost();
 	}
 }
 
-void Order::addOptionalBean(CoffeeBean _newBean) {
+void Order::addOptionalBean(const CoffeeBean _newBean) {
 	this->optionalBean.push_back(_newBean);
 }
 
-void Order::addOptionalIngre(Ingredient _newIngre) {
+void Order::addOptionalIngre(const Ingredient _newIngre) {
 	this->optionalIngre.push_back(_newIngre);
 }
 
@@ -24,7 +24,7 @@ void Order::removeOptionalBean() {
 
 }
 
-void Order::removeOptionalBean() {
+void Order::removeOptionalIngre() {
 
 }
 

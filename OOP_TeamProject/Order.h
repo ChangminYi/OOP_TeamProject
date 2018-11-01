@@ -23,11 +23,11 @@ private:
 	void setCost();
 
 public:
-	void addOptionalBean(CoffeeBean _newBean);
-	void addOptionalIngre(Ingredient _newIngre);
+	void addOptionalBean(const CoffeeBean _newBean);
+	void addOptionalIngre(const Ingredient _newIngre);
 
 	void removeOptionalBean();
-	void removeOptionalBean();
+	void removeOptionalIngre();
 
 	unsigned int getCost() const;
 };

@@ -14,15 +14,15 @@ void Coffee::setCost() {
 	this->cost = temp;
 }
 
-void Coffee::setName(std::string _name) {
+void Coffee::setName(const std::string _name) {
 	this->name = _name;
 }
 
-void Coffee::addBeanList(CoffeeBean _newBean) {
+void Coffee::addBeanList(const CoffeeBean _newBean) {
 	this->beanList.push_back(_newBean);
 }
 
-void Coffee::addIngreList(Ingredient _newIngredient) {
+void Coffee::addIngreList(const Ingredient _newIngredient) {
 	this->ingreList.push_back(_newIngredient);
 }
 

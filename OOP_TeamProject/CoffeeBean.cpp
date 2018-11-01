@@ -1,10 +1,10 @@
 #include "CoffeeBean.h"
 
-void CoffeeBean::setName(std::string _name) {
+void CoffeeBean::setName(const std::string _name) {
 	this->name = _name;
 }
 
-void CoffeeBean::setCost(unsigned int _cost) {
+void CoffeeBean::setCost(const unsigned int _cost) {
 	this->cost = _cost;
 }
 
