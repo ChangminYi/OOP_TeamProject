@@ -123,6 +123,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CoffeeBean.h" />
+    <ClInclude Include="Func_CoffeeOrder.h" />
+    <ClInclude Include="Func_DataSetting.h" />
     <ClInclude Include="Ingredient.h" />
     <ClInclude Include="Coffee.h" />
     <ClInclude Include="Order.h" />

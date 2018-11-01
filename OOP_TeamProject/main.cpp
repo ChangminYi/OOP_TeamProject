@@ -8,7 +8,13 @@
 #include <string>
 #endif
 
+//주문을 위한 데이터를 정의한 클래스 헤더
 #include "Order.h"
+
+//프로그램 작동을 위한 함수들 정의한 헤더
+#include "Func_CoffeeOrder.h"
+#include "Func_DataSetting.h"
+
 
 CoffeeBean defaultBean[] = {
 	CoffeeBean("Colombian Milds", 1000),
@@ -48,26 +54,37 @@ Coffee defaultCoffee[]{
 };
 
 
-void printDefaultBean() {
-	for (int i = 0; i < sizeof(defaultBean) / sizeof(CoffeeBean); i++) {
-		std::cout << defaultBean[i].getName() << ", " << defaultBean[i].getCost() << std::endl;
-	}
+void printMainScreen() {
+	std::cout << "  1. 커피 주문" << std::endl;
+	std::cout << "  2. 관리" << std::endl;
+	std::cout << "  3. 종료" << std::endl;
+	std::cout << "선택: ";
+	return;
 }
 
-void printDefaultIngredient() {
-	for (int i = 0; i < sizeof(defaultIngredient) / sizeof(CoffeeBean); i++) {
-		std::cout << defaultIngredient[i].getName() << ", " << defaultIngredient[i].getCost() << std::endl;
-	}
-}
+bool selectMainFunction() {
+	int argi = 0;
+	std::cin >> argi;
 
-void printDefaultCoffee() {
-	for (int i = 0; i < sizeof(defaultCoffee) / sizeof(Coffee); i++) {
-		std::cout << defaultCoffee[i].getName() << ", " << defaultCoffee[i].getCost() << std::endl;
+	switch (argi) {
+	case 1:
+		//function for coffee order
+		break;
+	case 2:
+		//function for data setting
+		break;
+	case 3:
+		return false;
+	default:
+		std::cout << "올바른 입력이 아닙니다." << std::endl;
 	}
+	return true;
 }
 
 int main() {
-	std::cout << "Alpha Version" << std::endl;
+	do {
+		printMainScreen();
+	} while (selectMainFunction() != false);
 
 	system("pause");
 	return 0;
