@@ -25,19 +25,40 @@ private:
 	void setCost();
 
 public:
-	Coffee(const std::string _name) :name(_name) { this->setCost(); };
-	Coffee(const std::string _name, const CoffeeBean _defaultCoffeeBean) :name(_name) { this->beanList.push_back(_defaultCoffeeBean); };
-	Coffee(const std::string _name, const std::vector<CoffeeBean> _beanList) :name(_name), beanList(_beanList) { this->setCost(); };
-	Coffee(const std::string _name, const std::vector<Ingredient> _ingreList) :name(_name), ingreList(_ingreList) { this->setCost(); };
-	Coffee(const std::string _name, const std::vector<CoffeeBean> _beanList, const std::vector<Ingredient> _ingreList) :name(_name), beanList(_beanList), ingreList(_ingreList) { this->setCost(); };
+	Coffee(const std::string _name) :name(_name) {
+		this->setCost();
+	};
+	Coffee(const std::string _name, const Ingredient _ingreList[]) :name(_name) {
+		for (int i = 0; i < sizeof(_ingreList) / sizeof(Ingredient); i++) {
+			this->ingreList.push_back(_ingreList[i]);
+		}
+		this->setCost();
+	}
+	Coffee(const std::string _name, const CoffeeBean _defaultCoffeeBean) :name(_name) {
+		this->beanList.push_back(_defaultCoffeeBean);
+		this->setCost();
+	};
+	Coffee(const std::string _name, const CoffeeBean _defaultCoffeeBean, const std::vector<Ingredient> _ingreList) :name(_name), ingreList(_ingreList) {
+		this->beanList.push_back(_defaultCoffeeBean);
+		this->setCost();
+	};
+	Coffee(const std::string _name, const std::vector<CoffeeBean> _beanList) :name(_name), beanList(_beanList) {
+		this->setCost();
+	};
+	Coffee(const std::string _name, const std::vector<Ingredient> _ingreList) :name(_name), ingreList(_ingreList) {
+		this->setCost();
+	};
+	Coffee(const std::string _name, const std::vector<CoffeeBean> _beanList, const std::vector<Ingredient> _ingreList) :name(_name), beanList(_beanList), ingreList(_ingreList) {
+		this->setCost();
+	};
 
 	void setName(const std::string _name);
 
 	void addBeanList(const CoffeeBean _newBean);
 	void addIngreList(const Ingredient _newIngredient);
 
-	void removeBeanList();
-	void removeIngreList();
+	void removeBeanList(const int iter);
+	void removeIngreList(const int iter);
 
 	std::vector<CoffeeBean> getBeanList() const;
 	std::vector<Ingredient> getIngreList() const;

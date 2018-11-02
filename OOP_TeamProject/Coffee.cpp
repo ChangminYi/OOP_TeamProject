@@ -20,18 +20,22 @@ void Coffee::setName(const std::string _name) {
 
 void Coffee::addBeanList(const CoffeeBean _newBean) {
 	this->beanList.push_back(_newBean);
+	this->setCost();
 }
 
 void Coffee::addIngreList(const Ingredient _newIngredient) {
 	this->ingreList.push_back(_newIngredient);
+	this->setCost();
 }
 
-void Coffee::removeBeanList() {
-
+void Coffee::removeBeanList(const int iter) {
+	this->beanList.erase(this->beanList.begin() + iter);
+	this->setCost();
 }
 
-void Coffee::removeIngreList() {
-
+void Coffee::removeIngreList(const int iter) {
+	this->ingreList.erase(this->ingreList.begin() + iter);
+	this->setCost();
 }
 
 std::vector<CoffeeBean> Coffee::getBeanList() const {

@@ -6,7 +6,7 @@
 
 void printDefaultCoffeeBeanList();
 void printDefaultIngredientList();
-void printDefaultCoffeeList();
+void printDefaultCoffeeList(bool _allStatus = 0);
 void printCustomOrderList();
 
 

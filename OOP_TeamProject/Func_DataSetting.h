@@ -7,14 +7,17 @@
 #ifndef FUNC_DATASETTING
 #define FUNC_DATASETTING
 
+
 void printDataSetting();
 void printAddDeleteModify();
 void printAddDeleteModify_Coffee();
+
 
 void addCoffeeBean();
 void deleteCoffeeBean();
 void modifyCoffeeBean();
 void selectCoffeeBeanSetting();
+
 
 void addIngredient();
 void deleteIngredient();
@@ -22,7 +25,12 @@ void modifyIngredient();
 void selectIngredientSetting();
 
 
-
+void addCoffeeBeanToCoffee();
+void deleteCoffeeBeanFromCoffee();
+void addIngredientToCoffee();
+void deleteIngredientFromCoffee();
+void addCoffee();
+void deleteCoffee();
 void selectCoffeeSetting();
 
 
