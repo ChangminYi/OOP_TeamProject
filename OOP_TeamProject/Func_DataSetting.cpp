@@ -3,7 +3,21 @@
 #include <iostream>
 #endif // !IOSTREAM
 
+#ifndef VECTOR
+#define VECTOR
+#include <vector>
+#endif
+
 #include "Func_DataSetting.h"
+#include "Order.h"
+
+//global variables (in GlobalVar.cpp)
+extern std::vector<CoffeeBean> defaultCoffeeBeanList;
+extern std::vector<Ingredient> defaultIngredientList;
+extern std::vector<Coffee> defaultCoffeeList;
+extern std::vector<Order> customOrderList;
+extern CoffeeBean defaultCoffeeBean;
+
 
 //main에서 2번이 눌렸을 경우 화면을 출력하는 함수
 void printDataSetting() {

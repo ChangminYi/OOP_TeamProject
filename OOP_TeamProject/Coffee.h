@@ -26,6 +26,7 @@ private:
 
 public:
 	Coffee(const std::string _name) :name(_name) { this->setCost(); };
+	Coffee(const std::string _name, const CoffeeBean _defaultCoffeeBean) :name(_name) { this->beanList.push_back(_defaultCoffeeBean); };
 	Coffee(const std::string _name, const std::vector<CoffeeBean> _beanList) :name(_name), beanList(_beanList) { this->setCost(); };
 	Coffee(const std::string _name, const std::vector<Ingredient> _ingreList) :name(_name), ingreList(_ingreList) { this->setCost(); };
 	Coffee(const std::string _name, const std::vector<CoffeeBean> _beanList, const std::vector<Ingredient> _ingreList) :name(_name), beanList(_beanList), ingreList(_ingreList) { this->setCost(); };

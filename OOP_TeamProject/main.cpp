@@ -16,15 +16,6 @@
 #include "Func_DataSetting.h"
 
 
-CoffeeBean defaultBean[] = {
-	CoffeeBean("Colombian Milds", 1000),
-	CoffeeBean("Ethiopian Harrar", 1000),
-	CoffeeBean("Ethiopian Yirgacheffe", 1000),
-	CoffeeBean("Hawaiian Kona", 1000),
-	CoffeeBean("Jamaican Blue Mountain", 1000),
-	CoffeeBean("Java", 1000)
-};
-
 Ingredient defaultIngredient[] = {
 	Ingredient("Choco Syrup", 500),
 	Ingredient("Charamel Syrup", 500),
@@ -32,7 +23,7 @@ Ingredient defaultIngredient[] = {
 	Ingredient("Vanilla Syrup", 500),
 	Ingredient("Whipping Cream", 500),
 	Ingredient("Milk Foam", 500),
-	Ingredient("Water", 500),
+	Ingredient("Water", 500)
 };
 
 Coffee defaultCoffee[]{
