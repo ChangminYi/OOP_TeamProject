@@ -106,11 +106,20 @@ void deleteCoffeeBean() {
 
 	int idx = 0;
 	do {
-		std::cout << "삭제할 원두 번호: ";
+		std::cout << "삭제할 원두 번호 (취소는 0): ";
 		std::cin >> idx;
-	} while (idx < 1 || idx > defaultCoffeeBeanList.size());
 
-	defaultCoffeeBeanList.erase(defaultCoffeeBeanList.begin() + (idx - 1));
+		if (idx < 0 || idx > defaultCoffeeBeanList.size()) {
+			std::cout << "잘못된 입력입니다." << std::endl;
+			continue;
+		}
+		else if (idx == 0) {
+			break;
+		}
+		else {
+			defaultCoffeeBeanList.erase(defaultCoffeeBeanList.begin() + (idx - 1));
+		}
+	} while (idx < 0 || idx > defaultCoffeeBeanList.size());
 
 	return;
 }
@@ -121,9 +130,17 @@ void modifyCoffeeBean() {
 	
 	int idx = 0;
 	do {
-		std::cout << "수정할 원두 번호: ";
+		std::cout << "수정할 원두 번호 (취소는 0): ";
 		std::cin >> idx;
-	} while (idx < 1 || idx > defaultCoffeeBeanList.size());
+
+		if (idx > defaultCoffeeBeanList.size() || idx < 0) {
+			std::cout << "잘못된 입력입니다." << std::endl;
+			continue;
+		}
+		else if (idx == 0) {
+			return;
+		}
+	} while (idx < 0 || idx > defaultCoffeeBeanList.size());
 
 	//이름 수정
 	char yn = 0;
@@ -215,9 +232,17 @@ void deleteIngredient() {
 	do {
 		std::cout << "삭제할 첨가물 번호: ";
 		std::cin >> idx;
-	} while (idx < 1 || idx > defaultIngredientList.size());
 
-	defaultIngredientList.erase(defaultIngredientList.begin() + (idx - 1));
+		if (idx < 0 || idx > defaultIngredientList.size()) {
+			std::cout << "잘못된 입력입니다." << std::endl;
+		}
+		else if (idx == 0) {
+			break;
+		}
+		else {
+			defaultIngredientList.erase(defaultIngredientList.begin() + (idx - 1));
+		}
+	} while (idx < 1 || idx > defaultIngredientList.size());
 
 	return;
 }
@@ -228,9 +253,17 @@ void modifyIngredient() {
 
 	int idx = 0;
 	do {
-		std::cout << "수정할 첨가물 번호: ";
+		std::cout << "수정할 첨가물 번호 (취소는 0): ";
 		std::cin >> idx;
-	} while (idx < 1 || idx > defaultIngredientList.size());
+
+		if (idx < 0 || idx > defaultIngredientList.size()) {
+			std::cout << "잘못된 입력입니다." << std::endl;
+			continue;
+		}
+		else if (idx == 0) {
+			return;
+		}
+	} while (idx < 0 || idx > defaultIngredientList.size());
 
 	//이름 수정
 	char yn = 0;
@@ -304,19 +337,32 @@ void addCoffeeBeanToCoffee() {
 
 	int idx_coffee = 0;
 	do {
-		std::cout << "커피콩을 추가할 커피 번호를 선택해 주세요: ";
+		std::cout << "커피콩을 추가할 커피 번호를 선택해 주세요 (취소는 0): ";
 		std::cin >> idx_coffee;
-	} while (idx_coffee < 1 || idx_coffee > defaultCoffeeList.size());
+
+		if (idx_coffee < 0 || idx_coffee > defaultCoffeeList.size()) {
+			std::cout << "잘못된 입력입니다." << std::endl;
+			continue;
+		}
+		else if (idx_coffee == 0) {
+			return;
+		}
+	} while (idx_coffee < 0 || idx_coffee > defaultCoffeeList.size());
 
 	printDefaultCoffeeBeanList();
 	int idx_bean = 0;
 	do {
-		do {
-			std::cout << "추가할 원두 번호를 선택해 주세요 (다 추가했으면 0): ";
-			std::cin >> idx_bean;
-		} while (idx_bean < 0 || idx_bean > defaultCoffeeBeanList.size());
+		std::cout << "추가할 원두 번호를 선택해 주세요 (다 추가했으면 0): ";
+		std::cin >> idx_bean;
 
-		if (idx_bean != 0) {
+		if (idx_bean < 0 || idx_bean > defaultCoffeeBeanList.size()) {
+			std::cout << "잘못된 입력입니다." << std::endl;
+			continue;
+		}
+		else if (idx_bean == 0) {
+			break;
+		}
+		else {
 			defaultCoffeeList.at(idx_coffee - 1).addBeanList(defaultCoffeeBeanList.at(idx_bean - 1));
 		}
 	} while (idx_bean != 0);
@@ -324,38 +370,51 @@ void addCoffeeBeanToCoffee() {
 	return;
 }
 
-//커피에 커피공 제거 함수
+//커피에 커피콩 제거 함수
 void deleteCoffeeBeanFromCoffee() {
 	printDefaultCoffeeList();
 
 	int idx_coffee = 0;
 	do {
-		std::cout << "커피콩을 제거할 커피 번호를 선택해 주세요: ";
+		std::cout << "커피콩을 제거할 커피 번호를 선택해 주세요 (취소는 0): ";
 		std::cin >> idx_coffee;
-	} while (idx_coffee < 1 || idx_coffee > defaultCoffeeList.size());
+
+		if (idx_coffee < 0 || idx_coffee > defaultCoffeeList.size()) {
+			std::cout << "잘못된 입력입니다." << std::endl;
+			continue;
+		}
+		else if (idx_coffee == 0) {
+			return;
+		}
+	} while (idx_coffee < 0 || idx_coffee > defaultCoffeeList.size());
 
 	Coffee &toRemove = defaultCoffeeList.at(idx_coffee - 1);
 
 	int idx_bean = 0;
 	do {
-		do {
-			if (toRemove.getBeanList().empty()) {
-				std::cout << "원두가 없습니다." << std::endl;
-				idx_bean = 0;
+		if (toRemove.getBeanList().empty()) {
+			std::cout << "원두가 없습니다." << std::endl;
+			idx_bean = 0;
+			break;
+		}
+		else {
+			printCoffeeBeanOfCoffee(toRemove);
+
+			std::cout << "삭제할 원두 번호를 선택해 주세요 (다 삭제했으면 0): ";
+			std::cin >> idx_bean;
+
+			if (idx_bean < 0 || idx_bean > toRemove.getBeanList().size()) {
+				std::cout << "잘못된 입력입니다." << std::endl;
+				continue;
+			}
+			else if (idx_bean == 0) {
 				break;
 			}
 			else {
-				printCoffeeBeanOfCoffee(toRemove);
-
-				std::cout << "삭제할 원두 번호를 선택해 주세요 (다 삭제했으면 0): ";
-				std::cin >> idx_bean;
-
-				if (idx_bean > 0) {
-					toRemove.removeBeanList(idx_bean - 1);
-				}
+				toRemove.removeBeanList(idx_bean - 1);
 			}
-		} while (idx_bean != 0);
-	} while (idx_bean < 0 || idx_bean > toRemove.getBeanList().size());
+		}
+	} while (idx_bean != 0);
 
 	return;
 }
@@ -366,9 +425,17 @@ void addIngredientToCoffee() {
 
 	int idx_coffee = 0;
 	do {
-		std::cout << "첨가물을 추가할 커피 번호를 선택해 주세요: ";
+		std::cout << "첨가물을 추가할 커피 번호를 선택해 주세요 (취소는 0): ";
 		std::cin >> idx_coffee;
-	} while (idx_coffee < 1 || idx_coffee>defaultCoffeeList.size());
+
+		if (idx_coffee < 0 || idx_coffee > defaultCoffeeList.size()) {
+			std::cout << "잘못된 입력입니다." << std::endl;
+			continue;
+		}
+		else if (idx_coffee == 0) {
+			return;
+		}
+	} while (idx_coffee < 0 || idx_coffee > defaultCoffeeList.size());
 
 	printDefaultIngredientList();
 	int idx_ingre = 0;
@@ -378,7 +445,14 @@ void addIngredientToCoffee() {
 			std::cin >> idx_ingre;
 		} while (idx_ingre < 0 || idx_ingre > defaultCoffeeBeanList.size());
 
-		if (idx_ingre != 0) {
+		if (idx_ingre < 0 || idx_ingre > defaultIngredientList.size()) {
+			std::cout << "잘못된 입력입니다." << std::endl;
+			continue;
+		}
+		else if (idx_ingre == 0) {
+			break;
+		}
+		else {
 			defaultCoffeeList.at(idx_coffee - 1).addIngreList(defaultIngredientList.at(idx_ingre - 1));
 		}
 	} while (idx_ingre != 0);
@@ -394,42 +468,115 @@ void deleteIngredientFromCoffee() {
 	do {
 		std::cout << "커피콩을 제거할 커피 번호를 선택해 주세요: ";
 		std::cin >> idx_coffee;
-	} while (idx_coffee < 1 || idx_coffee > defaultCoffeeList.size());
+
+		if (idx_coffee < 0 || idx_coffee > defaultCoffeeList.size()) {
+			std::cout << "잘못된 입력입니다." << std::endl;
+			continue;
+		}
+		else if (idx_coffee == 0) {
+			return;
+		}
+	} while (idx_coffee < 0 || idx_coffee > defaultCoffeeList.size());
 
 	Coffee &toRemove = defaultCoffeeList.at(idx_coffee - 1);
 
 	int idx_ingre = 0;
 	do {
-		do {
-			if (toRemove.getIngreList().empty()) {
-				std::cout << "첨가물이 없습니다." << std::endl;
-				idx_ingre = 0;
+		if (toRemove.getIngreList().empty()) {
+			std::cout << "첨가물이 없습니다." << std::endl;
+			idx_ingre = 0;
+			break;
+		}
+		else {
+			printIngredientOfCoffee(toRemove);
+
+			std::cout << "삭제할 첨가물 번호를 선택해 주세요 (다 삭제했으면 0): ";
+			std::cin >> idx_ingre;
+
+			if (idx_ingre < 0 || idx_ingre > toRemove.getIngreList().size()) {
+				std::cout << "잘못된 입력입니다." << std::endl;
+				continue;
+			}
+			else if (idx_ingre == 0) {
 				break;
 			}
 			else {
-				printIngredientOfCoffee(toRemove);
-
-				std::cout << "삭제할 첨가물 번호를 선택해 주세요 (다 삭제했으면 0): ";
-				std::cin >> idx_ingre;
-
-				if (idx_ingre > 0) {
-					toRemove.removeIngreList(idx_ingre - 1);
-				}
+				toRemove.removeIngreList(idx_ingre - 1);
 			}
-		} while (idx_ingre != 0);
-	} while (idx_ingre < 0 || idx_ingre > toRemove.getIngreList().size());
+		}
+	} while (idx_ingre != 0);
 
 	return;
 }
 
 //커피 추가 함수
 void addCoffee() {
+	std::string newCoffeeName;
+	std::cout << "새로운 커피 이름을 입력하세요: ";
+	std::cin.ignore();
+	std::getline(std::cin, newCoffeeName);
 
+	int tmp = 0;
+	std::vector<CoffeeBean> newBean;
+	printDefaultCoffeeBeanList();
+	do {
+		std::cout << "원두를 추가하세요 (다 추가했으면 0): ";
+		std::cin >> tmp;
+
+		if (tmp < 0 || tmp > defaultCoffeeBeanList.size()) {
+			std::cout << "잘못된 입력입니다." << std::endl;
+			continue;
+		}
+		else if (tmp == 0) {
+			break;
+		}
+		else {
+			newBean.push_back(defaultCoffeeBeanList.at(tmp - 1));
+		}
+	} while (tmp != 0);
+
+	tmp = 0;
+	std::vector<Ingredient> newIngre;
+	printDefaultIngredientList();
+	do {
+		std::cout << "첨가물을 추가하세요 (다 추가했으면 0): ";
+		std::cin >> tmp;
+
+		if (tmp < 0 || tmp > defaultIngredientList.size()) {
+			std::cout << "잘못된 입력입니다." << std::endl;
+		}
+		else if (tmp == 0) {
+			break;
+		}
+		else {
+			newIngre.push_back(defaultIngredientList.at(tmp - 1));
+		}
+	} while (tmp != 0);
+
+	Coffee newCoffee(newCoffeeName, newBean, newIngre);
+	defaultCoffeeList.push_back(newCoffee);
+
+	return;
 }
 
 //커피 제거 함수
 void deleteCoffee() {
+	printDefaultCoffeeList();
+	int toDelete = 0;
+	do {
+		std::cout << "삭제할 커피 번호를 입력하세요 (취소는 0): ";
+		std::cin >> toDelete;
 
+		if (toDelete < 0 || toDelete > defaultCoffeeList.size()) {
+			std::cout << "잘못된 입력입니다." << std::endl;
+		}
+		else if (toDelete == 0) {
+			break;
+		}
+		else {
+			defaultCoffeeList.erase(defaultCoffeeList.begin() + (toDelete - 1));
+		}
+	} while (toDelete != 0);
 	return;
 }
 
