@@ -4,6 +4,16 @@
  *메인 화면에서 1번을 선택했을 때 실행되는 함수들
  */
 
+#ifndef IOSTREAM
+#define IOSTREAM
+#include <iostream>
+#endif // !IOSTREAM
+
+#ifndef VECTOR
+#define VECTOR
+#include <vector>
+#endif // !VECTOR
+
 #ifndef FUNC_COFFEEORDER
 #define FUNC_COFFEEORDER
 

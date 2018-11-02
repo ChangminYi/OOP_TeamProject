@@ -34,6 +34,14 @@ void Coffee::removeIngreList() {
 
 }
 
+std::vector<CoffeeBean> Coffee::getBeanList() const {
+	return this->beanList;
+}
+
+std::vector<Ingredient> Coffee::getIngreList() const {
+	return this->ingreList;
+}
+
 std::string Coffee::getName() const {
 	return this->name;
 }

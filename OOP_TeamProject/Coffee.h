@@ -39,6 +39,9 @@ public:
 	void removeBeanList();
 	void removeIngreList();
 
+	std::vector<CoffeeBean> getBeanList() const;
+	std::vector<Ingredient> getIngreList() const;
+
 	std::string getName() const;
 	unsigned int getCost() const;
 };
