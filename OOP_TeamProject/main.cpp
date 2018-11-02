@@ -19,35 +19,7 @@
 #include "Func_DataSetting.h"
 
 
-Ingredient defaultIngredient[] = {
-	Ingredient("Choco Syrup", 500),
-	Ingredient("Charamel Syrup", 500),
-	Ingredient("Hazelnut Syrup", 500),
-	Ingredient("Vanilla Syrup", 500),
-	Ingredient("Whipping Cream", 500),
-	Ingredient("Milk Foam", 500),
-	Ingredient("Water", 500)
-};
-
-Coffee defaultCoffee[]{
-	Coffee("Espresso"),
-	Coffee("Espresso Con Panna"),
-	Coffee("Espresso Macchiato"),
-	Coffee("Americano"),
-	Coffee("Vienna"),
-	Coffee("Caffe Latte"),
-	Coffee("Hazelnut Latte"),
-	Coffee("Vanilla Latte"),
-	Coffee("Caramel Latte"),
-	Coffee("Caramel Macchiato"),
-	Coffee("Cappuccino"),
-	Coffee("Caffe Mocha"),
-	Coffee("White Chocolate Mocha"),
-	Coffee("Caramel Mocha"),
-	Coffee("Mochaccino")
-};
-
-
+//메인 화면 출력 함수
 void printMainScreen() {
 	std::cout << "  1. 커피 주문" << std::endl;
 	std::cout << "  2. 관리" << std::endl;
@@ -56,6 +28,7 @@ void printMainScreen() {
 	return;
 }
 
+//작업 분배 함수
 bool selectMainFunction() {
 	int argi = 0;
 	std::cin >> argi;
@@ -75,6 +48,7 @@ bool selectMainFunction() {
 	return true;
 }
 
+//메인 함수
 int main() {
 	init();
 
