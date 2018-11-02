@@ -8,6 +8,12 @@
 #include <vector>
 #endif
 
+#ifndef STRING
+#define STRING
+#include <string>
+#endif
+
+#include "GlobalVar.h"
 #include "Func_DataSetting.h"
 #include "Order.h"
 
@@ -50,6 +56,77 @@ void printAddDeleteModify_Coffee() {
 	return;
 }
 
+//원두 추가 함수
+void addCoffeeBean() {
+	std::string newCoffeeBeanName;
+	unsigned int newCost = 0;
+
+	std::cout << "추가할 원두 이름: ";
+	std::cin.ignore();
+	std::getline(std::cin, newCoffeeBeanName);
+	std::cout << "원두 가격: ";
+	std::cin >> newCost;
+
+	defaultCoffeeBeanList.push_back(CoffeeBean(newCoffeeBeanName, newCost));
+	
+	return;
+}
+
+//원두 삭제 함수
+void deleteCoffeeBean() {
+	printDefaultCoffeeBeanList();
+
+	int idx = 0;
+	do {
+		std::cout << "삭제할 원두 번호: ";
+		std::cin >> idx;
+	} while (idx < 1 || idx > defaultCoffeeBeanList.size());
+
+	defaultCoffeeBeanList.erase(defaultCoffeeBeanList.begin() + (idx - 1));
+
+	return;
+}
+
+//원두 수정 함수
+void modifyCoffeeBean() {
+	printDefaultCoffeeBeanList();
+	
+	int idx = 0;
+	do {
+		std::cout << "수정할 원두 번호: ";
+		std::cin >> idx;
+	} while (idx < 1 || idx > defaultCoffeeBeanList.size());
+
+	//이름 수정
+	char yn = 0;
+	do {
+		std::cout << "이름을 수정하시겠습니까? (Y or N): ";
+		std::cin >> yn;
+	} while (yn != 'Y' && yn != 'N');
+	if (yn == 'Y') {
+		std::string newName = defaultCoffeeBeanList.at(idx - 1).getName();
+		std::cout << "새 이름을 입력하세요: ";
+		std::cin.ignore();
+		std::getline(std::cin, newName);
+		defaultCoffeeBeanList.at(idx - 1).setName(newName);
+	}
+
+	//가격 수정
+	yn = 0;
+	do {
+		std::cout << "가격을 수정하시겠습니까? (Y or N): ";
+		std::cin >> yn;
+	} while (yn != 'Y' && yn != 'N');
+	if (yn == 'Y') {
+		unsigned int newCost = defaultCoffeeBeanList.at(idx - 1).getCost();
+		std::cout << "새 가격을 입력하세요: ";
+		std::cin >> newCost;
+		defaultCoffeeBeanList.at(idx - 1).setCost(newCost);
+	}
+	
+	return;
+}
+
 //원두에서 할 작업 선택하는 함수
 void selectCoffeeBeanSetting() {
 	printAddDeleteModify();
@@ -61,17 +138,91 @@ void selectCoffeeBeanSetting() {
 		switch (tmp) {
 		case 1:
 			//addition
+			addCoffeeBean();
 			break;
 		case 2:
 			//deletion
+			deleteCoffeeBean();
 			break;
 		case 3:
 			//modify
+			modifyCoffeeBean();
 			break;
 		default:
 			std::cout << "올바른 입력이 아닙니다." << std::endl;
 		}
 	} while (tmp < 1 || tmp > 3);
+
+	return;
+}
+
+//첨가물 추가 함수
+void addIngredient() {
+	std::string newIngredientName;
+	unsigned int newCost = 0;
+
+	std::cout << "추가할 첨가물 이름: ";
+	std::cin.ignore();
+	std::getline(std::cin, newIngredientName);
+	std::cout << "첨가물 가격: ";
+	std::cin >> newCost;
+
+	defaultIngredientList.push_back(Ingredient(newIngredientName, newCost));
+
+	return;
+}
+
+//첨가물 삭제 함수
+void deleteIngredient() {
+	printDefaultIngredientList();
+
+	int idx = 0;
+	do {
+		std::cout << "삭제할 첨가물 번호: ";
+		std::cin >> idx;
+	} while (idx < 1 || idx > defaultIngredientList.size());
+
+	defaultIngredientList.erase(defaultIngredientList.begin() + (idx - 1));
+
+	return;
+}
+
+//첨가물 수정 함수
+void modifyIngredient() {
+	printDefaultIngredientList();
+
+	int idx = 0;
+	do {
+		std::cout << "수정할 첨가물 번호: ";
+		std::cin >> idx;
+	} while (idx < 1 || idx > defaultIngredientList.size());
+
+	//이름 수정
+	char yn = 0;
+	do {
+		std::cout << "이름을 수정하시겠습니까? (Y or N): ";
+		std::cin >> yn;
+	} while (yn != 'Y' && yn != 'N');
+	if (yn == 'Y') {
+		std::string newName = defaultIngredientList.at(idx - 1).getName();
+		std::cout << "새 이름을 입력하세요: ";
+		std::cin.ignore();
+		std::getline(std::cin, newName);
+		defaultIngredientList.at(idx - 1).setName(newName);
+	}
+
+	//가격 수정
+	yn = 0;
+	do {
+		std::cout << "가격을 수정하시겠습니까? (Y or N): ";
+		std::cin >> yn;
+	} while (yn != 'Y' && yn != 'N');
+	if (yn == 'Y') {
+		unsigned int newCost = defaultIngredientList.at(idx - 1).getCost();
+		std::cout << "새 가격을 입력하세요: ";
+		std::cin >> newCost;
+		defaultIngredientList.at(idx - 1).setCost(newCost);
+	}
 
 	return;
 }
@@ -87,12 +238,15 @@ void selectIngredientSetting() {
 		switch (tmp) {
 		case 1:
 			//addition
+			addIngredient();
 			break;
 		case 2:
 			//deletion
+			deleteIngredient();
 			break;
 		case 3:
 			//modify
+			modifyIngredient();
 			break;
 		default:
 			std::cout << "올바른 입력이 아닙니다." << std::endl;

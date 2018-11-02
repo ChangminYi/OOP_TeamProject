@@ -8,6 +8,9 @@
 #include <string>
 #endif
 
+//전역변수 초기화를 위한 헤더
+#include "GlobalVar.h"
+
 //주문을 위한 데이터를 정의한 클래스 헤더
 #include "Order.h"
 
@@ -73,6 +76,8 @@ bool selectMainFunction() {
 }
 
 int main() {
+	init();
+
 	do {
 		printMainScreen();
 	} while (selectMainFunction() != false);

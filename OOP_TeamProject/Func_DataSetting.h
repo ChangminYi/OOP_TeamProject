@@ -11,9 +11,20 @@ void printDataSetting();
 void printAddDeleteModify();
 void printAddDeleteModify_Coffee();
 
+void addCoffeeBean();
+void deleteCoffeeBean();
+void modifyCoffeeBean();
 void selectCoffeeBeanSetting();
+
+void addIngredient();
+void deleteIngredient();
+void modifyIngredient();
 void selectIngredientSetting();
+
+
+
 void selectCoffeeSetting();
+
 
 void dataSettingSelected();
 

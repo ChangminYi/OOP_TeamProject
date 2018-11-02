@@ -24,28 +24,28 @@ CoffeeBean defaultCoffeeBean;
 
 void printDefaultCoffeeBeanList() {
 	for (int i = 0; i < defaultCoffeeBeanList.size(); i++) {
-		std::cout << i + 1 << defaultCoffeeBeanList.at(i).getName() << std::endl;
+		std::cout << "    " << i + 1 << ". " << defaultCoffeeBeanList.at(i).getName() << ", " << defaultCoffeeBeanList.at(i).getCost() << "¿ø" << std::endl;
 	}
 	return;
 }
 
 void printDefaultIngredientList() {
 	for (int i = 0; i < defaultIngredientList.size(); i++) {
-		std::cout << i + 1 << defaultIngredientList.at(i).getName() << std::endl;
+		std::cout << "    " << i + 1 << ". " << defaultIngredientList.at(i).getName() << ", " << defaultIngredientList.at(i).getCost() << "¿ø" << std::endl;
 	}
 	return;
 }
 
 void printDefaultCoffeeList() {
 	for (int i = 0; i < defaultCoffeeList.size(); i++) {
-		std::cout << i + 1 << defaultCoffeeList.at(i).getName() << std::endl;
+		std::cout << "    " << i + 1 << ". " << defaultCoffeeList.at(i).getName() << ", " << defaultCoffeeList.at(i).getCost() << "¿ø" << std::endl;
 	}
 	return;
 }
 
 void printCustomOrderList() {
 	for (int i = 0; i < customOrderList.size(); i++) {
-		//std::cout << i + 1 << customOrderList.at(i).getName() << std::endl;
+		//std::cout << "    " << i + 1 << ". " << customOrderList.at(i).getName() << std::endl;
 	}
 	return;
 }
