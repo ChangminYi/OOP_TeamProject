@@ -8,7 +8,6 @@
 #include <string>
 #endif
 
-#include "Order.h"
 #include "GlobalVar.h"
 
 //사용 가능한 원두 종류
@@ -131,4 +130,16 @@ void init() {
 	initCoffee();
 
 	return;
+}
+
+Coffee getDefaultCoffee(int _index) {
+	return defaultCoffeeList.at(_index);
+}
+
+CoffeeBean getDefaultCoffeeBean(int _index) {
+	return defaultCoffeeBeanList.at(_index);
+}
+
+Ingredient getDefaultIngredient(int _index) {
+	return defaultIngredientList.at(_index);
 }
