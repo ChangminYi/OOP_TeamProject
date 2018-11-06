@@ -26,7 +26,7 @@ void CaffeData::printDefaultIngredientList() {
 	return;
 }
 
-void CaffeData::printDefaultCoffeeList(bool _allStatus) {
+void CaffeData::printDefaultCoffeeList(const bool _allStatus) {
 	for (int i = 0; i < this->defaultCoffeeList.size(); i++) {
 		std::cout << "    " << i + 1 << ". " << this->defaultCoffeeList[i].getName() << ", " << this->defaultCoffeeList[i].getCost() << "¿ø" << std::endl;
 		
@@ -54,32 +54,32 @@ void CaffeData::printCustomOrderList() {
 	return;
 }
 
-void CaffeData::addCoffeeBean(CoffeeBean _bean){
+void CaffeData::addCoffeeBean(const CoffeeBean _bean){
 	this->defaultCoffeeBeanList.push_back(_bean);
 	return;
 }
 
-void CaffeData::addIngredient(Ingredient _ingre) {
+void CaffeData::addIngredient(const Ingredient _ingre) {
 	this->defaultIngredientList.push_back(_ingre);
 	return;
 }
 
-void CaffeData::addCoffee(Coffee _coffee) {
+void CaffeData::addCoffee(const Coffee _coffee) {
 	this->defaultCoffeeList.push_back(_coffee);
 	return;
 }
 
-void CaffeData::deleteCoffeeBean(int it){
+void CaffeData::deleteCoffeeBean(const int it){
 	this->defaultCoffeeBeanList.erase(this->defaultCoffeeBeanList.begin() + it);
 	return;
 }
 
-void CaffeData::deleteIngredient(int it) {
+void CaffeData::deleteIngredient(const int it) {
 	this->defaultIngredientList.erase(this->defaultIngredientList.begin() + it);
 	return;
 }
 
-void CaffeData::deleteCoffee(int it) {
+void CaffeData::deleteCoffee(const int it) {
 	this->defaultCoffeeList.erase(this->defaultCoffeeList.begin() + it);
 }
 
@@ -144,15 +144,15 @@ void CaffeData::initCoffee() {
 }
 
 
-Coffee CaffeData::getDefaultCoffee(int _index) {
+Coffee &CaffeData::getDefaultCoffee(const int _index) {
 	return this->defaultCoffeeList.at(_index);
 }
 
-CoffeeBean CaffeData::getDefaultCoffeeBean(int _index) {
+CoffeeBean &CaffeData::getDefaultCoffeeBean(const int _index) {
 	return this->defaultCoffeeBeanList.at(_index);
 }
 
-Ingredient CaffeData::getDefaultIngredient(int _index) {
+Ingredient &CaffeData::getDefaultIngredient(const int _index) {
 	return this->defaultIngredientList.at(_index);
 }
 

@@ -18,6 +18,7 @@ d:\school\중앙대학교\2학년 2학기\객체지향프로그래밍\oop_teampr
   d:\school\중앙대학교\2학년 2학기\객체지향프로그래밍\oop_teamproject\oop_teamproject\func_datasetting.cpp(505): note: 'addCoffee' 선언을 참조하십시오.
 d:\school\중앙대학교\2학년 2학기\객체지향프로그래밍\oop_teamproject\oop_teamproject\func_datasetting.cpp(606): error C2660: 'deleteCoffee': 함수는 0개의 매개 변수를 사용하지 않습니다.
   d:\school\중앙대학교\2학년 2학기\객체지향프로그래밍\oop_teamproject\oop_teamproject\func_datasetting.cpp(554): note: 'deleteCoffee' 선언을 참조하십시오.
+  CaffeData.cpp
   main.cpp
 d:\school\중앙대학교\2학년 2학기\객체지향프로그래밍\oop_teamproject\oop_teamproject\main.cpp(38): error C2660: 'coffeeOrderSelected': 함수는 1개의 매개 변수를 사용하지 않습니다.
   d:\school\중앙대학교\2학년 2학기\객체지향프로그래밍\oop_teamproject\oop_teamproject\func_coffeeorder.h(27): note: 'coffeeOrderSelected' 선언을 참조하십시오.

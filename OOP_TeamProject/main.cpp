@@ -57,5 +57,7 @@ int main() {
 	} while (selectMainFunction(defData) != false);
 
 	system("pause");
+
+	delete defData;
 	return 0;
 }

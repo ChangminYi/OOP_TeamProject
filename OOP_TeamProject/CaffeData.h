@@ -18,23 +18,23 @@ public:
 	//정보 출력 함수
 	void printDefaultCoffeeBeanList();
 	void printDefaultIngredientList();
-	void printDefaultCoffeeList(bool _allStatus = 0);
+	void printDefaultCoffeeList(const bool _allStatus = 0);
 	void printCustomOrderList();
 
 	//vector.push_back();
-	void addCoffeeBean(CoffeeBean _bean);
-	void addIngredient(Ingredient _ingre);
-	void addCoffee(Coffee _coffee);
+	void addCoffeeBean(const CoffeeBean _bean);
+	void addIngredient(const Ingredient _ingre);
+	void addCoffee(const Coffee _coffee);
 
 	//vector.erase(iterator);
-	void deleteCoffeeBean(int it);
-	void deleteIngredient(int it);
-	void deleteCoffee(int it);
+	void deleteCoffeeBean(const int it);
+	void deleteIngredient(const int it);
+	void deleteCoffee(const int it);
 
 	//getter
-	Coffee getDefaultCoffee(int _index);
-	CoffeeBean getDefaultCoffeeBean(int _index);
-	Ingredient getDefaultIngredient(int _index);
+	Coffee &getDefaultCoffee(const int _index);
+	CoffeeBean &getDefaultCoffeeBean(const int _index);
+	Ingredient &getDefaultIngredient(const int _index);
 	size_t sizeofCoffeeBeanList();
 	size_t sizeofIngredientList();
 	size_t sizeofCoffeeList();
