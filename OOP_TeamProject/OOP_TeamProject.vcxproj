@@ -119,7 +119,7 @@
     <ClCompile Include="CoffeeBean.cpp" />
     <ClCompile Include="Func_CoffeeOrder.cpp" />
     <ClCompile Include="Func_DataSetting.cpp" />
-    <ClCompile Include="GlobalVar.cpp" />
+    <ClCompile Include="CaffeData.cpp" />
     <ClCompile Include="Ingredient.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Order.cpp" />
@@ -128,7 +128,7 @@
     <ClInclude Include="CoffeeBean.h" />
     <ClInclude Include="Func_CoffeeOrder.h" />
     <ClInclude Include="Func_DataSetting.h" />
-    <ClInclude Include="GlobalVar.h" />
+    <ClInclude Include="CaffeData.h" />
     <ClInclude Include="Ingredient.h" />
     <ClInclude Include="Coffee.h" />
     <ClInclude Include="Order.h" />

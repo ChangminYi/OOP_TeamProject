@@ -18,7 +18,7 @@
 #include <string>
 #endif // !STRING
 
-#include "GlobalVar.h"
+#include "CaffeData.h"
 #include "Order.h"
 
 #ifndef FUNC_COFFEEORDER

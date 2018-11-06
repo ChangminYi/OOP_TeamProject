@@ -9,7 +9,7 @@
 #endif
 
 //전역변수 초기화를 위한 헤더
-#include "GlobalVar.h"
+#include "CaffeData.h"
 
 //주문을 위한 데이터를 정의한 클래스 헤더
 #include "Order.h"
@@ -29,16 +29,16 @@ void printMainScreen() {
 }
 
 //작업 분배 함수
-bool selectMainFunction() {
+bool selectMainFunction(CaffeData *_cd) {
 	int argi = 0;
 	std::cin >> argi;
 
 	switch (argi) {
 	case 1:
-		coffeeOrderSelected();
+		coffeeOrderSelected(_cd);
 		break;
 	case 2:
-		dataSettingSelected();
+		dataSettingSelected(_cd);
 		break;
 	case 3:
 		return false;
@@ -50,11 +50,11 @@ bool selectMainFunction() {
 
 //메인 함수
 int main() {
-	init();
+	CaffeData *defData = new CaffeData();
 
 	do {
 		printMainScreen();
-	} while (selectMainFunction() != false);
+	} while (selectMainFunction(defData) != false);
 
 	system("pause");
 	return 0;
