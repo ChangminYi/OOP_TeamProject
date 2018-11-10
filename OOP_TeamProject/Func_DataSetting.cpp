@@ -25,7 +25,7 @@
 //커피의 원두 출력하는 함수
 void printCoffeeBeanOfCoffee(Coffee arg) {
 	for (int i = 0; i < arg.getBeanList().size(); i++) {
-		std::cout << "      " << i + 1 << ". " << arg.getBeanList().at(i).getName() << std::endl;
+		std::cout << "      " << i + 1 << ". " << arg.getBeanList().at(i)->getName() << std::endl;
 	}
 
 	return;
@@ -34,7 +34,7 @@ void printCoffeeBeanOfCoffee(Coffee arg) {
 //커피의 첨가물 출력하는 함수
 void printIngredientOfCoffee(Coffee arg) {
 	for (int i = 0; i < arg.getIngreList().size(); i++) {
-		std::cout << "      " << i + 1 << ". " << arg.getIngreList().at(i).getName() << std::endl;
+		std::cout << "      " << i + 1 << ". " << arg.getIngreList().at(i)->getName() << std::endl;
 	}
 
 	return;
@@ -161,6 +161,7 @@ void modifyCoffeeBean(CaffeData *_cd) {
 		std::cout << "새 가격을 입력하세요: ";
 		std::cin >> newCost;
 		_cd->getDefaultCoffeeBean(idx - 1).setCost(newCost);
+		_cd->updateCost();
 	}
 	
 	return;
@@ -284,6 +285,7 @@ void modifyIngredient(CaffeData *_cd) {
 		std::cout << "새 가격을 입력하세요: ";
 		std::cin >> newCost;
 		_cd->getDefaultIngredient(idx - 1).setCost(newCost);
+		_cd->updateCost();
 	}
 
 	return;

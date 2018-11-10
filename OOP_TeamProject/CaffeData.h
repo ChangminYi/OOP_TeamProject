@@ -39,6 +39,9 @@ public:
 	size_t sizeofIngredientList();
 	size_t sizeofCoffeeList();
 
+	//updator
+	void updateCost();
+
 private:
 	//초기화 함수들
 	void initCoffeeBean();
@@ -51,7 +54,7 @@ private:
 	std::vector<Ingredient> defaultIngredientList;
 	std::vector<Coffee> defaultCoffeeList;
 	std::vector<Order> customOrderList;
-	CoffeeBean defaultCoffeeBean;
+	CoffeeBean *defaultCoffeeBean;
 };
 
 #endif

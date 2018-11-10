@@ -31,15 +31,15 @@ void CaffeData::printDefaultCoffeeList(const bool _allStatus) {
 		std::cout << "    " << i + 1 << ". " << this->defaultCoffeeList[i].getName() << ", " << this->defaultCoffeeList[i].getCost() << "원" << std::endl;
 		
 		if (_allStatus) {
-			std::vector<CoffeeBean> beanTemp = defaultCoffeeList[i].getBeanList();
+			std::vector<CoffeeBean*> beanTemp = defaultCoffeeList[i].getBeanList();
 			std::cout << "      원두: ";
 			for (int j = 0; j < beanTemp.size(); j++) {
-				std::cout << beanTemp[j].getName() << " ";
+				std::cout << beanTemp[j]->getName() << " ";
 			}
-			std::vector<Ingredient> ingTemp = defaultCoffeeList[i].getIngreList();
+			std::vector<Ingredient*> ingTemp = defaultCoffeeList[i].getIngreList();
 			std::cout << std::endl << "      첨가물: ";
 			for (int j = 0; j < ingTemp.size(); j++) {
-				std::cout << ingTemp[j].getName() << " ";
+				std::cout << ingTemp[j]->getName() << " ";
 			}
 			std::cout << std::endl;
 		}
@@ -93,7 +93,7 @@ void CaffeData::initCoffeeBean() {
 	this->defaultCoffeeBeanList.push_back(CoffeeBean("Java", 1000));
 
 	//set default coffeebean
-	this->defaultCoffeeBean = defaultCoffeeBeanList[5];	//Java
+	this->defaultCoffeeBean = &this->defaultCoffeeBeanList[5];	//Java
 
 	return;
 }
@@ -125,20 +125,20 @@ void CaffeData::initCoffee() {
 	//update initial coffee
 
 	this->defaultCoffeeList.push_back(Coffee("Espresso", defaultCoffeeBean, { }));
-	this->defaultCoffeeList.push_back(Coffee("Espresso Con Panna", defaultCoffeeBean, { defaultIngredientList.at(4) }));
-	this->defaultCoffeeList.push_back(Coffee("Espresso Macchiato", defaultCoffeeBean, { defaultIngredientList.at(6), defaultIngredientList.at(5) }));
-	this->defaultCoffeeList.push_back(Coffee("Americano", defaultCoffeeBean, { defaultIngredientList.at(7) }));
-	this->defaultCoffeeList.push_back(Coffee("Vienna", defaultCoffeeBean, { defaultIngredientList.at(7), defaultIngredientList.at(4) }));
-	this->defaultCoffeeList.push_back(Coffee("Caffe Latte", defaultCoffeeBean, { defaultIngredientList.at(6), defaultIngredientList.at(5) }));
-	this->defaultCoffeeList.push_back(Coffee("Hazelnut Latte", defaultCoffeeBean, { defaultIngredientList.at(2), defaultIngredientList.at(6), defaultIngredientList.at(5) }));
-	this->defaultCoffeeList.push_back(Coffee("Vanilla Latte", defaultCoffeeBean, { defaultIngredientList.at(3), defaultIngredientList.at(6), defaultIngredientList.at(5) }));
-	this->defaultCoffeeList.push_back(Coffee("Caramel Latte", defaultCoffeeBean, { defaultIngredientList.at(1), defaultIngredientList.at(6), defaultIngredientList.at(5) }));
-	this->defaultCoffeeList.push_back(Coffee("Caramel Macchiato", defaultCoffeeBean, { defaultIngredientList.at(1), defaultIngredientList.at(6), defaultIngredientList.at(5) }));
-	this->defaultCoffeeList.push_back(Coffee("Cappuccino", defaultCoffeeBean, { defaultIngredientList.at(6), defaultIngredientList.at(5) }));
-	this->defaultCoffeeList.push_back(Coffee("Caffe Mocha", defaultCoffeeBean, { defaultIngredientList.at(0), defaultIngredientList.at(6), defaultIngredientList.at(4) }));
-	this->defaultCoffeeList.push_back(Coffee("White Chocolate Mocha", defaultCoffeeBean, { defaultIngredientList.at(8), defaultIngredientList.at(6), defaultIngredientList.at(4) }));
-	this->defaultCoffeeList.push_back(Coffee("Caramel Mocha", defaultCoffeeBean, { defaultIngredientList.at(0), defaultIngredientList.at(1), defaultIngredientList.at(6), defaultIngredientList.at(4) }));
-	this->defaultCoffeeList.push_back(Coffee("Mochaccino", defaultCoffeeBean, { defaultIngredientList.at(0), defaultIngredientList.at(6), defaultIngredientList.at(5) }));
+	this->defaultCoffeeList.push_back(Coffee("Espresso Con Panna", defaultCoffeeBean, { &this->defaultIngredientList[4] }));
+	this->defaultCoffeeList.push_back(Coffee("Espresso Macchiato", defaultCoffeeBean, { &this->defaultIngredientList[6], &this->defaultIngredientList[5] }));
+	this->defaultCoffeeList.push_back(Coffee("Americano", defaultCoffeeBean, { &this->defaultIngredientList[7] }));
+	this->defaultCoffeeList.push_back(Coffee("Vienna", defaultCoffeeBean, { &this->defaultIngredientList[7], &this->defaultIngredientList[4] }));
+	this->defaultCoffeeList.push_back(Coffee("Caffe Latte", defaultCoffeeBean, { &this->defaultIngredientList[6], &this->defaultIngredientList[5] }));
+	this->defaultCoffeeList.push_back(Coffee("Hazelnut Latte", defaultCoffeeBean, { &this->defaultIngredientList[2], &this->defaultIngredientList[6], &this->defaultIngredientList[5] }));
+	this->defaultCoffeeList.push_back(Coffee("Vanilla Latte", defaultCoffeeBean, { &this->defaultIngredientList[3], &this->defaultIngredientList[6], &this->defaultIngredientList[5] }));
+	this->defaultCoffeeList.push_back(Coffee("Caramel Latte", defaultCoffeeBean, { &this->defaultIngredientList[1], &this->defaultIngredientList[6], &this->defaultIngredientList[5] }));
+	this->defaultCoffeeList.push_back(Coffee("Caramel Macchiato", defaultCoffeeBean, { &this->defaultIngredientList[1], &this->defaultIngredientList[6], &this->defaultIngredientList[5]}));
+	this->defaultCoffeeList.push_back(Coffee("Cappuccino", defaultCoffeeBean, { &this->defaultIngredientList[6], &this->defaultIngredientList[5] }));
+	this->defaultCoffeeList.push_back(Coffee("Caffe Mocha", defaultCoffeeBean, { &this->defaultIngredientList[0], &this->defaultIngredientList[6], &this->defaultIngredientList[4] }));
+	this->defaultCoffeeList.push_back(Coffee("White Chocolate Mocha", defaultCoffeeBean, { &this->defaultIngredientList[8], &this->defaultIngredientList[6], &this->defaultIngredientList[4] }));
+	this->defaultCoffeeList.push_back(Coffee("Caramel Mocha", defaultCoffeeBean, { &this->defaultIngredientList[0], &this->defaultIngredientList[1], &this->defaultIngredientList[6], &this->defaultIngredientList[4] }));
+	this->defaultCoffeeList.push_back(Coffee("Mochaccino", defaultCoffeeBean, { &this->defaultIngredientList[0], &this->defaultIngredientList[6], &this->defaultIngredientList[5] }));
 
 	return;
 }
@@ -166,4 +166,10 @@ size_t CaffeData::sizeofIngredientList() {
 
 size_t CaffeData::sizeofCoffeeList(){
 	return this->defaultCoffeeList.size();
+}
+
+void CaffeData::updateCost() {
+	for (int i = 0; i < this->sizeofCoffeeList(); i++) {
+		this->defaultCoffeeList[i].setCost();
+	}
 }

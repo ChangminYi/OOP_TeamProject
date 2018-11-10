@@ -1,8 +1,5 @@
 #include "Func_CoffeeOrder.h"
 
-//global variables (in GlobalVar.cpp)
-extern std::vector<Coffee> defaultCoffeeList;
-
 
 /*
 주문을 받는 함수
@@ -11,7 +8,7 @@ extern std::vector<Coffee> defaultCoffeeList;
 */
 
 void coffeeOrderSelected(CaffeData* _cd) {
-	CaffeData currentData = *_cd;
+	CaffeData *currentData = _cd;
 	std::vector<Coffee> orderedCoffeeList; //주문한 커피 목록
 
 	unsigned int orderdCoffeeNum, optionalCoffeeBeanNum, optionalIngreNum;
@@ -21,10 +18,10 @@ void coffeeOrderSelected(CaffeData* _cd) {
 		bool checkCustom = false; // 주문된 커피에 추가적인 수정이 가해졌는지를 체크.
 
 		std::cout << std::endl << "주문할 커피의 번호를 입력해 주세요." << std::endl;
-		currentData.printDefaultCoffeeList();
+		currentData->printDefaultCoffeeList();
 		std::cout << "입력: ";
 		std::cin >> orderdCoffeeNum;
-		orderedCoffeeList.push_back(currentData.getDefaultCoffee(orderdCoffeeNum - 1));
+		orderedCoffeeList.push_back(currentData->getDefaultCoffee(orderdCoffeeNum - 1));
 
 		for (int j = 0; ; j++) {
 			std::cout << "원두를 추가하시겠습니까?(Y/N): " << std::endl;
@@ -34,10 +31,10 @@ void coffeeOrderSelected(CaffeData* _cd) {
 			}
 
 			checkCustom = true;
-			currentData.printDefaultCoffeeBeanList();
+			currentData->printDefaultCoffeeBeanList();
 			std::cout << "입력: ";
 			std::cin >> optionalCoffeeBeanNum;
-			orderedCoffeeList.at(i).addBeanList(currentData.getDefaultCoffeeBean(optionalCoffeeBeanNum - 1));
+			orderedCoffeeList.at(i).addBeanList(currentData->getDefaultCoffeeBean(optionalCoffeeBeanNum - 1));
 		}
 
 		for (int j = 0; ; j++) {
@@ -48,10 +45,10 @@ void coffeeOrderSelected(CaffeData* _cd) {
 			}
 
 			checkCustom = true;
-			currentData.printDefaultIngredientList();
+			currentData->printDefaultIngredientList();
 			std::cout << "입력: ";
 			std::cin >> optionalIngreNum;
-			orderedCoffeeList.at(i).addIngreList(currentData.getDefaultIngredient(optionalIngreNum - 1));
+			orderedCoffeeList.at(i).addIngreList(currentData->getDefaultIngredient(optionalIngreNum - 1));
 		}
 
 		if (checkCustom) {
@@ -63,9 +60,9 @@ void coffeeOrderSelected(CaffeData* _cd) {
 
 			std::string _newCoffeeName;
 			std::cout << "추가할 커피의 이름을 입력해주세요: ";
-			std::cin >> _newCoffeeName;
+			std::getline(std::cin, _newCoffeeName);
 			Coffee _newCoffee = Coffee(_newCoffeeName, orderedCoffeeList.at(i).getBeanList(), orderedCoffeeList.at(i).getIngreList());
-			defaultCoffeeList.push_back(_newCoffee);
+			currentData->addCoffee(_newCoffee);
 		}
 	}
 

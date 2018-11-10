@@ -4,11 +4,11 @@ void Coffee::setCost() {
 	unsigned int temp = 0;
 
 	for (int i = 0; i < this->beanList.size() ; i++) {	
-		temp += this->beanList.at(i).getCost();
+		temp += this->beanList.at(i)->getCost();
 	}
 
 	for (int i = 0; i < this->ingreList.size(); i++) {
-		temp += this->ingreList.at(i).getCost();
+		temp += this->ingreList.at(i)->getCost();
 	}
 
 	this->cost = temp;
@@ -18,13 +18,13 @@ void Coffee::setName(const std::string _name) {
 	this->name = _name;
 }
 
-void Coffee::addBeanList(const CoffeeBean _newBean) {
-	this->beanList.push_back(_newBean);
+void Coffee::addBeanList(CoffeeBean _newBean) {
+	this->beanList.push_back(&_newBean);
 	this->setCost();
 }
 
-void Coffee::addIngreList(const Ingredient _newIngredient) {
-	this->ingreList.push_back(_newIngredient);
+void Coffee::addIngreList(Ingredient _newIngredient) {
+	this->ingreList.push_back(&_newIngredient);
 	this->setCost();
 }
 
@@ -38,11 +38,11 @@ void Coffee::removeIngreList(const int iter) {
 	this->setCost();
 }
 
-std::vector<CoffeeBean> Coffee::getBeanList() const {
+std::vector<CoffeeBean*> Coffee::getBeanList() const {
 	return this->beanList;
 }
 
-std::vector<Ingredient> Coffee::getIngreList() const {
+std::vector<Ingredient*> Coffee::getIngreList() const {
 	return this->ingreList;
 }
 
