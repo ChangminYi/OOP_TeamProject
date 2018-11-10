@@ -22,6 +22,5 @@
 #define FUNC_COFFEEORDER
 
 void coffeeOrderSelected(CaffeData *_cd);
-void makeBill(const std::vector<Coffee> _orderedCoffeeList);
 
 #endif // !COFFEEORDERFUNC

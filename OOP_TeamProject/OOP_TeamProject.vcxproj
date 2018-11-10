@@ -115,6 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CaffeClerk.cpp" />
     <ClCompile Include="Coffee.cpp" />
     <ClCompile Include="CoffeeBean.cpp" />
     <ClCompile Include="Func_CoffeeOrder.cpp" />
@@ -125,6 +126,7 @@
     <ClCompile Include="Order.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CaffeClerk.h" />
     <ClInclude Include="CoffeeBean.h" />
     <ClInclude Include="Func_CoffeeOrder.h" />
     <ClInclude Include="Func_DataSetting.h" />
