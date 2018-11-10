@@ -13,27 +13,27 @@ void printAddDeleteModify();
 void printAddDeleteModify_Coffee();
 
 
-void addCoffeeBean(CaffeData *);
-void deleteCoffeeBean(CaffeData *);
-void modifyCoffeeBean(CaffeData *);
-void selectCoffeeBeanSetting(CaffeData *);
+void addCoffeeBean(CaffeData *_cd);
+void deleteCoffeeBean(CaffeData *_cd);
+void modifyCoffeeBean(CaffeData *_cd);
+void selectCoffeeBeanSetting(CaffeData *_cd);
 
 
-void addIngredient(CaffeData *);
-void deleteIngredient(CaffeData *);
-void modifyIngredient(CaffeData *);
-void selectIngredientSetting(CaffeData *);
+void addIngredient(CaffeData *_cd);
+void deleteIngredient(CaffeData *_cd);
+void modifyIngredient(CaffeData *_cd);
+void selectIngredientSetting(CaffeData *_cd);
 
 
-void addCoffeeBeanToCoffee(CaffeData *);
-void deleteCoffeeBeanFromCoffee(CaffeData *);
-void addIngredientToCoffee(CaffeData *);
-void deleteIngredientFromCoffee(CaffeData *);
-void addCoffee(CaffeData *);
-void deleteCoffee(CaffeData *);
-void selectCoffeeSetting(CaffeData *);
+void addCoffeeBeanToCoffee(CaffeData *_cd);
+void deleteCoffeeBeanFromCoffee(CaffeData *_cd);
+void addIngredientToCoffee(CaffeData *_cd);
+void deleteIngredientFromCoffee(CaffeData *_cd);
+void addCoffee(CaffeData *_cd);
+void deleteCoffee(CaffeData *_cd);
+void selectCoffeeSetting(CaffeData *_cd);
 
 
-void dataSettingSelected(CaffeData *);
+void dataSettingSelected(CaffeData *_cd);
 
 #endif
