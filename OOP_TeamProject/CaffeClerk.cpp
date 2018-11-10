@@ -12,20 +12,21 @@ std::vector<Coffee> CaffeClerk::getOrderedList() {
 	return this->orderedCoffeeList;
 }
 
-void CaffeClerk::addBean(Coffee _coffee, int _idx) {
-	_coffee.addBeanList(this->cd->getDefaultCoffeeBean(_idx));
+void CaffeClerk::addBean(int listIdx, int beanIdx) {
+	CoffeeBean tmp = this->cd->getDefaultCoffeeBean(beanIdx);
+	this->orderedCoffeeList.at(listIdx).addBeanList(tmp);
 }
 
-void CaffeClerk::addIngre(Coffee _coffee, int _idx) {
-	_coffee.addIngreList(this->cd->getDefaultIngredient(_idx));
+void CaffeClerk::addIngre(int listIdx, int ingreIdx) {
+	Ingredient tmp = this->cd->getDefaultIngredient(ingreIdx);
+	this->orderedCoffeeList.at(listIdx).addIngreList(tmp);
 }
 
 void CaffeClerk::addOrder(int _idx) {
-	Coffee tmp = this->cd->getDefaultCoffee(_idx);
-	this->orderedCoffeeList.push_back(tmp);
+	this->orderedCoffeeList.push_back(this->cd->getDefaultCoffee(_idx));
 }
 
-void CaffeClerk::addOrder(Coffee _coffee) {
+void CaffeClerk::addOrder(Coffee& _coffee) {
 	this->orderedCoffeeList.push_back(_coffee);
 }
 
@@ -65,7 +66,7 @@ void CaffeClerk::makeBill() {
 커스텀된 커피(또는 새로 제작한 커피)를 데이터에 저장
 */
 
-void CaffeClerk::saveCustom(Coffee _newCoffee) {
+void CaffeClerk::saveCustom(Coffee& _newCoffee) {
 	_newCoffee.setCost();
 	this->cd->addCoffee(_newCoffee);
 }

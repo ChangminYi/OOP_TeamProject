@@ -29,9 +29,9 @@ public:
 	std::vector<Coffee> getOrderedList();
 
 	void addOrder(int _idx);
-	void addOrder(Coffee _coffee);
-	void addBean(Coffee _coffee, int _idx);
-	void addIngre(Coffee _coffee, int _idx);
-	void saveCustom(Coffee _newCoffee);
+	void addOrder(Coffee& _coffee);
+	void addBean(int listIdx, int beanIdx);
+	void addIngre(int listIdx, int ingreIdx);
+	void saveCustom(Coffee& _newCoffee);
 	void makeBill();
 };

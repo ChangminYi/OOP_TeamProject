@@ -40,7 +40,7 @@ void coffeeOrderSelected(CaffeData* _cd) {
 				clerk.getData()->printDefaultCoffeeBeanList();
 				std::cout << std::endl << "추가하고자 하는 원두의 번호를 입력해주세요: ";
 				std::cin >> _beanNum;
-				clerk.addBean(customCoffee, _beanNum - 1);
+				customCoffee.addBeanList(clerk.getData()->getDefaultCoffeeBean(_beanNum - 1));
 			}
 
 			std::cout << std::endl << "다음으로 커피에 들어갈 첨가물을 선택해야 합니다. ";
@@ -54,7 +54,7 @@ void coffeeOrderSelected(CaffeData* _cd) {
 				clerk.getData()->printDefaultIngredientList();
 				std::cout << std::endl << "추가하고자 하는 첨가물의 번호를 입력해주세요: ";
 				std::cin >> _ingreNum;
-				clerk.addIngre(customCoffee, _ingreNum - 1);
+				customCoffee.addIngreList(clerk.getData()->getDefaultIngredient(_ingreNum - 1));
 			}
 
 			clerk.saveCustom(customCoffee);
@@ -80,7 +80,8 @@ void coffeeOrderSelected(CaffeData* _cd) {
 				clerk.getData()->printDefaultCoffeeBeanList();
 				std::cout << "입력: ";
 				std::cin >> optionalCoffeeBeanNum;
-				clerk.getOrderedList().at(i).addBeanList(clerk.getData()->getDefaultCoffeeBean(optionalCoffeeBeanNum - 1));
+				clerk.addBean(i, optionalCoffeeBeanNum - 1);
+
 			}
 
 			for (int j = 0; ; j++) {
@@ -94,7 +95,7 @@ void coffeeOrderSelected(CaffeData* _cd) {
 				clerk.getData()->printDefaultIngredientList();
 				std::cout << "입력: ";
 				std::cin >> optionalIngreNum;
-				clerk.getOrderedList().at(i).addIngreList(clerk.getData()->getDefaultIngredient(optionalIngreNum - 1));
+				clerk.addIngre(i, optionalIngreNum - 1);
 			}
 
 			if (checkCustom) {
