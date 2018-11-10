@@ -24,7 +24,7 @@
 #ifndef FUNC_COFFEEORDER
 #define FUNC_COFFEEORDER
 
-void coffeeOrderSelected();
+void coffeeOrderSelected(CaffeData *_cd);
 void makeBill(const std::vector<Coffee> _orderedCoffeeList);
 
 #endif // !COFFEEORDERFUNC

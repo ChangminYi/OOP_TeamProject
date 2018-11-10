@@ -29,7 +29,7 @@ void printMainScreen() {
 }
 
 //작업 분배 함수
-bool selectMainFunction(CaffeData *_cd) {
+bool selectMainFunction(CaffeData* _cd) {
 	int argi = 0;
 	std::cin >> argi;
 
@@ -50,7 +50,7 @@ bool selectMainFunction(CaffeData *_cd) {
 
 //메인 함수
 int main() {
-	CaffeData *defData = new CaffeData();
+	CaffeData* defData = new CaffeData();
 
 	do {
 		printMainScreen();

@@ -583,27 +583,27 @@ void selectCoffeeSetting(CaffeData *_data) {
 		switch (tmp) {
 		case 1:
 			//coffeebean addition
-			addCoffeeBeanToCoffee();
+			addCoffeeBeanToCoffee(_data);
 			break;
 		case 2:
 			//coffeebean deletion
-			deleteCoffeeBeanFromCoffee();
+			deleteCoffeeBeanFromCoffee(_data);
 			break;
 		case 3:
 			//addon addition
-			addIngredientToCoffee();
+			addIngredientToCoffee(_data);
 			break;
 		case 4:
 			//addon deletion
-			deleteIngredientFromCoffee();
+			deleteIngredientFromCoffee(_data);
 			break;
 		case 5:
 			//coffee addition
-			addCoffee();
+			addCoffee(_data);
 			break;
 		case 6:
 			//coffee deletion
-			deleteCoffee();
+			deleteCoffee(_data);
 			break;
 		default:
 			std::cout << "올바른 입력이 아닙니다." << std::endl;

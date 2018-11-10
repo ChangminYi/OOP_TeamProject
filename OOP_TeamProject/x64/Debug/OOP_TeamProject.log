@@ -1,25 +1,2 @@
-﻿  Func_CoffeeOrder.cpp
-d:\school\중앙대학교\2학년 2학기\객체지향프로그래밍\oop_teamproject\oop_teamproject\func_coffeeorder.cpp(23): error C3861: 'printDefaultCoffeeList': 식별자를 찾을 수 없습니다.
-d:\school\중앙대학교\2학년 2학기\객체지향프로그래밍\oop_teamproject\oop_teamproject\func_coffeeorder.cpp(26): error C3861: 'getDefaultCoffee': 식별자를 찾을 수 없습니다.
-d:\school\중앙대학교\2학년 2학기\객체지향프로그래밍\oop_teamproject\oop_teamproject\func_coffeeorder.cpp(36): error C3861: 'printDefaultCoffeeBeanList': 식별자를 찾을 수 없습니다.
-d:\school\중앙대학교\2학년 2학기\객체지향프로그래밍\oop_teamproject\oop_teamproject\func_coffeeorder.cpp(39): error C3861: 'getDefaultCoffeeBean': 식별자를 찾을 수 없습니다.
-d:\school\중앙대학교\2학년 2학기\객체지향프로그래밍\oop_teamproject\oop_teamproject\func_coffeeorder.cpp(50): error C3861: 'printDefaultIngredientList': 식별자를 찾을 수 없습니다.
-d:\school\중앙대학교\2학년 2학기\객체지향프로그래밍\oop_teamproject\oop_teamproject\func_coffeeorder.cpp(53): error C3861: 'getDefaultIngredient': 식별자를 찾을 수 없습니다.
-  Func_DataSetting.cpp
-d:\school\중앙대학교\2학년 2학기\객체지향프로그래밍\oop_teamproject\oop_teamproject\func_datasetting.cpp(586): error C2660: 'addCoffeeBeanToCoffee': 함수는 0개의 매개 변수를 사용하지 않습니다.
-  d:\school\중앙대학교\2학년 2학기\객체지향프로그래밍\oop_teamproject\oop_teamproject\func_datasetting.cpp(329): note: 'addCoffeeBeanToCoffee' 선언을 참조하십시오.
-d:\school\중앙대학교\2학년 2학기\객체지향프로그래밍\oop_teamproject\oop_teamproject\func_datasetting.cpp(590): error C2660: 'deleteCoffeeBeanFromCoffee': 함수는 0개의 매개 변수를 사용하지 않습니다.
-  d:\school\중앙대학교\2학년 2학기\객체지향프로그래밍\oop_teamproject\oop_teamproject\func_datasetting.cpp(368): note: 'deleteCoffeeBeanFromCoffee' 선언을 참조하십시오.
-d:\school\중앙대학교\2학년 2학기\객체지향프로그래밍\oop_teamproject\oop_teamproject\func_datasetting.cpp(594): error C2660: 'addIngredientToCoffee': 함수는 0개의 매개 변수를 사용하지 않습니다.
-  d:\school\중앙대학교\2학년 2학기\객체지향프로그래밍\oop_teamproject\oop_teamproject\func_datasetting.cpp(417): note: 'addIngredientToCoffee' 선언을 참조하십시오.
-d:\school\중앙대학교\2학년 2학기\객체지향프로그래밍\oop_teamproject\oop_teamproject\func_datasetting.cpp(598): error C2660: 'deleteIngredientFromCoffee': 함수는 0개의 매개 변수를 사용하지 않습니다.
-  d:\school\중앙대학교\2학년 2학기\객체지향프로그래밍\oop_teamproject\oop_teamproject\func_datasetting.cpp(456): note: 'deleteIngredientFromCoffee' 선언을 참조하십시오.
-d:\school\중앙대학교\2학년 2학기\객체지향프로그래밍\oop_teamproject\oop_teamproject\func_datasetting.cpp(602): error C2660: 'addCoffee': 함수는 0개의 매개 변수를 사용하지 않습니다.
-  d:\school\중앙대학교\2학년 2학기\객체지향프로그래밍\oop_teamproject\oop_teamproject\func_datasetting.cpp(505): note: 'addCoffee' 선언을 참조하십시오.
-d:\school\중앙대학교\2학년 2학기\객체지향프로그래밍\oop_teamproject\oop_teamproject\func_datasetting.cpp(606): error C2660: 'deleteCoffee': 함수는 0개의 매개 변수를 사용하지 않습니다.
-  d:\school\중앙대학교\2학년 2학기\객체지향프로그래밍\oop_teamproject\oop_teamproject\func_datasetting.cpp(554): note: 'deleteCoffee' 선언을 참조하십시오.
-  CaffeData.cpp
-  main.cpp
-d:\school\중앙대학교\2학년 2학기\객체지향프로그래밍\oop_teamproject\oop_teamproject\main.cpp(38): error C2660: 'coffeeOrderSelected': 함수는 1개의 매개 변수를 사용하지 않습니다.
-  d:\school\중앙대학교\2학년 2학기\객체지향프로그래밍\oop_teamproject\oop_teamproject\func_coffeeorder.h(27): note: 'coffeeOrderSelected' 선언을 참조하십시오.
-  코드를 생성하고 있습니다...
+﻿Func_CoffeeOrder.obj : error LNK2001: "class std::vector<class Coffee,class std::allocator<class Coffee> > defaultCoffeeList" (?defaultCoffeeList@@3V?$vector@VCoffee@@V?$allocator@VCoffee@@@std@@@std@@A) 외부 기호를 확인할 수 없습니다.
+E:\users\ilgoo\desktop\oop_teamproject\OOP_TeamProject\x64\Debug\OOP_TeamProject.exe : fatal error LNK1120: 1개의 확인할 수 없는 외부 참조입니다.

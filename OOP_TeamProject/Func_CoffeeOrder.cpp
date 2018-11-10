@@ -10,7 +10,8 @@ extern std::vector<Coffee> defaultCoffeeList;
 
 */
 
-void coffeeOrderSelected() {
+void coffeeOrderSelected(CaffeData* _cd) {
+	CaffeData currentData = *_cd;
 	std::vector<Coffee> orderedCoffeeList; //주문한 커피 목록
 
 	unsigned int orderdCoffeeNum, optionalCoffeeBeanNum, optionalIngreNum;
@@ -20,10 +21,10 @@ void coffeeOrderSelected() {
 		bool checkCustom = false; // 주문된 커피에 추가적인 수정이 가해졌는지를 체크.
 
 		std::cout << std::endl << "주문할 커피의 번호를 입력해 주세요." << std::endl;
-		printDefaultCoffeeList();
+		currentData.printDefaultCoffeeList();
 		std::cout << "입력: ";
 		std::cin >> orderdCoffeeNum;
-		orderedCoffeeList.push_back(getDefaultCoffee(orderdCoffeeNum - 1));
+		orderedCoffeeList.push_back(currentData.getDefaultCoffee(orderdCoffeeNum - 1));
 
 		for (int j = 0; ; j++) {
 			std::cout << "원두를 추가하시겠습니까?(Y/N): " << std::endl;
@@ -33,10 +34,10 @@ void coffeeOrderSelected() {
 			}
 
 			checkCustom = true;
-			printDefaultCoffeeBeanList();
+			currentData.printDefaultCoffeeBeanList();
 			std::cout << "입력: ";
 			std::cin >> optionalCoffeeBeanNum;
-			orderedCoffeeList.at(i).addBeanList(getDefaultCoffeeBean(optionalCoffeeBeanNum - 1));
+			orderedCoffeeList.at(i).addBeanList(currentData.getDefaultCoffeeBean(optionalCoffeeBeanNum - 1));
 		}
 
 		for (int j = 0; ; j++) {
@@ -47,10 +48,10 @@ void coffeeOrderSelected() {
 			}
 
 			checkCustom = true;
-			printDefaultIngredientList();
+			currentData.printDefaultIngredientList();
 			std::cout << "입력: ";
 			std::cin >> optionalIngreNum;
-			orderedCoffeeList.at(i).addIngreList(getDefaultIngredient(optionalIngreNum - 1));
+			orderedCoffeeList.at(i).addIngreList(currentData.getDefaultIngredient(optionalIngreNum - 1));
 		}
 
 		if (checkCustom) {
