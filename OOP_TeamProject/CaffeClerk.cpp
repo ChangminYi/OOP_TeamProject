@@ -23,10 +23,11 @@ void CaffeClerk::addIngre(int listIdx, int ingreIdx) {
 }
 
 void CaffeClerk::addOrder(int _idx) {
-	this->orderedCoffeeList.push_back(this->cd->getDefaultCoffee(_idx));
+	Coffee tmp = this->cd->getDefaultCoffee(_idx);
+	this->orderedCoffeeList.push_back(tmp);
 }
 
-void CaffeClerk::addOrder(Coffee& _coffee) {
+void CaffeClerk::addOrder(Coffee _coffee) {
 	this->orderedCoffeeList.push_back(_coffee);
 }
 
@@ -42,6 +43,7 @@ void CaffeClerk::makeBill() {
 	std::cout << std::endl << "---------------<주문서>---------------" << std::endl;
 
 	for (int i = 0; i < this->orderedCoffeeList.size(); i++) {
+
 		std::cout << "  " << i + 1 << '.' << this->orderedCoffeeList.at(i).getName() << ": " << this->orderedCoffeeList.at(i).getCost() << "원" << std::endl;
 
 		_beanList = this->orderedCoffeeList.at(i).getBeanList();

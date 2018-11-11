@@ -9,7 +9,7 @@
 void coffeeOrderSelected(CaffeData* _cd) {
 	CaffeClerk clerk(_cd); // 카페점원 객체
 
-	unsigned int orderdCoffeeNum, optionalCoffeeBeanNum, optionalIngreNum;
+	int orderedCoffeeNum = 0, optionalCoffeeBeanNum = 0, optionalIngreNum = 0;
 
 	for (int i = 0; ; i++) {
 		int firstBP = 0;
@@ -65,9 +65,9 @@ void coffeeOrderSelected(CaffeData* _cd) {
 			std::cout << std::endl << "주문할 커피의 번호를 입력해 주세요." << std::endl;
 			clerk.getData()->printDefaultCoffeeList();
 			std::cout << "입력: ";
-			std::cin >> orderdCoffeeNum;
+			std::cin >> orderedCoffeeNum;
 
-			clerk.addOrder(orderdCoffeeNum - 1);
+			clerk.addOrder(orderedCoffeeNum - 1);
 
 			for (int j = 0; ; j++) {
 				std::cout << "원두를 추가하시겠습니까?(Y/N): ";
