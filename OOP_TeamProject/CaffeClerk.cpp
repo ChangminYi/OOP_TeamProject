@@ -13,13 +13,11 @@ std::vector<Coffee> CaffeClerk::getOrderedList() {
 }
 
 void CaffeClerk::addBean(int listIdx, int beanIdx) {
-	CoffeeBean tmp = this->cd->getDefaultCoffeeBean(beanIdx);
-	this->orderedCoffeeList.at(listIdx).addBeanList(tmp);
+	this->orderedCoffeeList.at(listIdx).addBeanList(this->cd->getDefaultCoffeeBean(beanIdx));
 }
 
 void CaffeClerk::addIngre(int listIdx, int ingreIdx) {
-	Ingredient tmp = this->cd->getDefaultIngredient(ingreIdx);
-	this->orderedCoffeeList.at(listIdx).addIngreList(tmp);
+	this->orderedCoffeeList.at(listIdx).addIngreList(this->cd->getDefaultIngredient(ingreIdx));
 }
 
 void CaffeClerk::addOrder(int _idx) {
