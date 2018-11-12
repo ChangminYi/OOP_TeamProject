@@ -32,9 +32,11 @@ public:
 	void deleteCoffee(const int it);
 
 	//getter
-	Coffee &getDefaultCoffee(const int _index);
-	CoffeeBean &getDefaultCoffeeBean(const int _index);
-	Ingredient &getDefaultIngredient(const int _index);
+	Coffee getDefaultCoffee(const int _index);
+	CoffeeBean getDefaultCoffeeBean(const int _index);
+	Ingredient getDefaultIngredient(const int _index);
+	std::vector<CoffeeBean> *getDefaultCoffeeBeanList();
+	std::vector<Ingredient> *getDefaultIngredientList();
 	size_t sizeofCoffeeBeanList();
 	size_t sizeofIngredientList();
 	size_t sizeofCoffeeList();

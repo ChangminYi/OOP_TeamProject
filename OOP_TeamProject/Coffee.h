@@ -65,12 +65,16 @@ public:
 		}
 		this->setCost();
 	};
-	Coffee(const std::string _name, const std::vector<CoffeeBean *> _beanList, const std::vector<Ingredient *> _ingreList) :name(_name), beanList(_beanList), ingreList(_ingreList) {};
+	Coffee(const std::string _name, const std::vector<CoffeeBean *> _beanList, const std::vector<Ingredient *> _ingreList) :name(_name), beanList(_beanList), ingreList(_ingreList) {
+		this->setCost();
+	};
 
 	void setName(const std::string _name);
 
-	void addBeanList(const CoffeeBean _newBean);
-	void addIngreList(const Ingredient _newIngredient);
+	void addBeanList(CoffeeBean _newBean);
+	void addBeanList(CoffeeBean *_newBean);
+	void addIngreList(Ingredient _newIngredient);
+	void addIngreList(Ingredient *_newIngredient);
 
 	void removeBeanList(const int iter);
 	void removeIngreList(const int iter);

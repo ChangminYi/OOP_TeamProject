@@ -23,8 +23,18 @@ void Coffee::addBeanList(CoffeeBean _newBean) {
 	this->setCost();
 }
 
+void Coffee::addBeanList(CoffeeBean *_newBean) {
+	this->beanList.push_back(_newBean);
+	this->setCost();
+}
+
 void Coffee::addIngreList(Ingredient _newIngredient) {
 	this->ingreList.push_back(&_newIngredient);
+	this->setCost();
+}
+
+void Coffee::addIngreList(Ingredient * _newIngredient){
+	this->ingreList.push_back(_newIngredient);
 	this->setCost();
 }
 

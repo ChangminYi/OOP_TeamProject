@@ -67,6 +67,5 @@ void CaffeClerk::makeBill() {
 */
 
 void CaffeClerk::saveCustom(Coffee& _newCoffee) {
-	_newCoffee.setCost();
 	this->cd->addCoffee(_newCoffee);
 }

@@ -144,16 +144,24 @@ void CaffeData::initCoffee() {
 }
 
 
-Coffee &CaffeData::getDefaultCoffee(const int _index) {
+Coffee CaffeData::getDefaultCoffee(const int _index) {
 	return this->defaultCoffeeList.at(_index);
 }
 
-CoffeeBean &CaffeData::getDefaultCoffeeBean(const int _index) {
+CoffeeBean CaffeData::getDefaultCoffeeBean(const int _index) {
 	return this->defaultCoffeeBeanList.at(_index);
 }
 
-Ingredient &CaffeData::getDefaultIngredient(const int _index) {
+Ingredient CaffeData::getDefaultIngredient(const int _index) {
 	return this->defaultIngredientList.at(_index);
+}
+
+std::vector<CoffeeBean>* CaffeData::getDefaultCoffeeBeanList(){
+	return &this->defaultCoffeeBeanList;
+}
+
+std::vector<Ingredient>* CaffeData::getDefaultIngredientList(){
+	return &this->defaultIngredientList;
 }
 
 size_t CaffeData::sizeofCoffeeBeanList() {
