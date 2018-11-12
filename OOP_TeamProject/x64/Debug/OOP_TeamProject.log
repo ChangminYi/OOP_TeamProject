@@ -1,9 +1,2 @@
-﻿  CaffeClerk.cpp
-  CaffeData.cpp
-  Coffee.cpp
-  Func_CoffeeOrder.cpp
-  Func_DataSetting.cpp
-  Order.cpp
-  main.cpp
-  코드를 생성하고 있습니다...
+﻿  Func_DataSetting.cpp
   OOP_TeamProject.vcxproj -> D:\School\중앙대학교\2학년 2학기\객체지향프로그래밍\OOP_TeamProject\x64\Debug\OOP_TeamProject.exe
