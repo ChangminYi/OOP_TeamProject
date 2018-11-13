@@ -12,21 +12,21 @@
 
 
 
-void CaffeData::printDefaultCoffeeBeanList() {
+void CaffeData::printDefaultCoffeeBeanList() const {
 	for (int i = 0; i < this->defaultCoffeeBeanList.size(); i++) {
 		std::cout << "    " << i + 1 << ". " << this->defaultCoffeeBeanList[i].getName() << ", " << this->defaultCoffeeBeanList[i].getCost() << "¿ø" << std::endl;
 	}
 	return;
 }
 
-void CaffeData::printDefaultIngredientList() {
+void CaffeData::printDefaultIngredientList() const {
 	for (int i = 0; i < this->defaultIngredientList.size(); i++) {
 		std::cout << "    " << i + 1 << ". " << this->defaultIngredientList[i].getName() << ", " << this->defaultIngredientList[i].getCost() << "¿ø" << std::endl;
 	}
 	return;
 }
 
-void CaffeData::printDefaultCoffeeList(const bool _allStatus) {
+void CaffeData::printDefaultCoffeeList(const bool _allStatus) const {
 	for (int i = 0; i < this->defaultCoffeeList.size(); i++) {
 		std::cout << "    " << i + 1 << ". " << this->defaultCoffeeList[i].getName() << ", " << this->defaultCoffeeList[i].getCost() << "¿ø" << std::endl;
 		
@@ -47,7 +47,7 @@ void CaffeData::printDefaultCoffeeList(const bool _allStatus) {
 	return;
 }
 
-void CaffeData::printCustomOrderList() {
+void CaffeData::printCustomOrderList() const {
 	for (int i = 0; i < this->customOrderList.size(); i++) {
 		//std::cout << "    " << i + 1 << ". " << customOrderList.at(i).getName() << std::endl;
 	}
@@ -144,35 +144,35 @@ void CaffeData::initCoffee() {
 }
 
 
-Coffee CaffeData::getDefaultCoffee(const int _index) {
+Coffee CaffeData::getDefaultCoffee(const int _index) const {
 	return this->defaultCoffeeList.at(_index);
 }
 
-CoffeeBean CaffeData::getDefaultCoffeeBean(const int _index) {
+CoffeeBean CaffeData::getDefaultCoffeeBean(const int _index) const {
 	return this->defaultCoffeeBeanList.at(_index);
 }
 
-Ingredient CaffeData::getDefaultIngredient(const int _index) {
+Ingredient CaffeData::getDefaultIngredient(const int _index) const {
 	return this->defaultIngredientList.at(_index);
 }
 
-std::vector<CoffeeBean>* CaffeData::getDefaultCoffeeBeanList(){
+std::vector<CoffeeBean> *const CaffeData::getDefaultCoffeeBeanList() {
 	return &this->defaultCoffeeBeanList;
 }
 
-std::vector<Ingredient>* CaffeData::getDefaultIngredientList(){
+std::vector<Ingredient> *const CaffeData::getDefaultIngredientList() {
 	return &this->defaultIngredientList;
 }
 
-size_t CaffeData::sizeofCoffeeBeanList() {
+size_t CaffeData::sizeofCoffeeBeanList() const {
 	return this->defaultCoffeeBeanList.size();
 }
 
-size_t CaffeData::sizeofIngredientList() {
+size_t CaffeData::sizeofIngredientList() const {
 	return this->defaultIngredientList.size();
 }
 
-size_t CaffeData::sizeofCoffeeList(){
+size_t CaffeData::sizeofCoffeeList() const {
 	return this->defaultCoffeeList.size();
 }
 

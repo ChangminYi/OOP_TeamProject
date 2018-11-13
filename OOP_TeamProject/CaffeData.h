@@ -15,11 +15,11 @@ public:
 		this->initCustomOrder();
 	}
 
-	//정보 출력 함수
-	void printDefaultCoffeeBeanList();
-	void printDefaultIngredientList();
-	void printDefaultCoffeeList(const bool _allStatus = 0);
-	void printCustomOrderList();
+	//data printer
+	void printDefaultCoffeeBeanList() const;
+	void printDefaultIngredientList() const;
+	void printDefaultCoffeeList(const bool _allStatus = 0) const;
+	void printCustomOrderList() const;
 
 	//vector.push_back();
 	void addCoffeeBean(const CoffeeBean _bean);
@@ -32,31 +32,31 @@ public:
 	void deleteCoffee(const int it);
 
 	//getter
-	Coffee getDefaultCoffee(const int _index);
-	CoffeeBean getDefaultCoffeeBean(const int _index);
-	Ingredient getDefaultIngredient(const int _index);
-	std::vector<CoffeeBean> *getDefaultCoffeeBeanList();
-	std::vector<Ingredient> *getDefaultIngredientList();
-	size_t sizeofCoffeeBeanList();
-	size_t sizeofIngredientList();
-	size_t sizeofCoffeeList();
+	Coffee getDefaultCoffee(const int _index) const;
+	CoffeeBean getDefaultCoffeeBean(const int _index) const;
+	Ingredient getDefaultIngredient(const int _index) const;
+	std::vector<CoffeeBean> *const getDefaultCoffeeBeanList();
+	std::vector<Ingredient> *const getDefaultIngredientList();
+	size_t sizeofCoffeeBeanList() const;
+	size_t sizeofIngredientList() const;
+	size_t sizeofCoffeeList() const;
 
 	//updator
 	void updateCost();
 
 private:
-	//초기화 함수들
+	//initializers
 	void initCoffeeBean();
 	void initIngredient();
 	void initCoffee();
 	void initCustomOrder();
 
-	//원두, 첨가물, 커피 데이터
-	std::vector<CoffeeBean> defaultCoffeeBeanList;
-	std::vector<Ingredient> defaultIngredientList;
-	std::vector<Coffee> defaultCoffeeList;
-	std::vector<Order> customOrderList;
-	CoffeeBean *defaultCoffeeBean;
+	//data
+	std::vector<CoffeeBean> defaultCoffeeBeanList;	//caffe's default coffee bean list
+	std::vector<Ingredient> defaultIngredientList;	//caffe's default ingredient list
+	std::vector<Coffee> defaultCoffeeList;			//caffe's default coffee menu list
+	std::vector<Order> customOrderList;				//caffe's custom order menu list
+	CoffeeBean *defaultCoffeeBean;					//caffe's default using coffee bean
 };
 
 #endif

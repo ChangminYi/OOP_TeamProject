@@ -33,7 +33,7 @@ void Coffee::addIngreList(Ingredient _newIngredient) {
 	this->setCost();
 }
 
-void Coffee::addIngreList(Ingredient * _newIngredient){
+void Coffee::addIngreList(Ingredient *_newIngredient){
 	this->ingreList.push_back(_newIngredient);
 	this->setCost();
 }
