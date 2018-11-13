@@ -13,12 +13,20 @@ void coffeeOrderSelected(CaffeData* _cd) {
 
 	for (int i = 0; ; i++) {
 		int firstBP = 0;
-		char secondBP = NULL, thirdBP = NULL, fourthBP = NULL, fifthBP = NULL;
+		char secondBP = NULL, thirdBP = NULL;
 		bool checkCustom = false; // 주문된 커피에 추가적인 수정이 가해졌는지를 체크.
 
-		std::cout << "1. 기존 메뉴에서 주문하기" << std::endl << "2. 나만의 커피 주문하기" << std::endl;
-		std::cout << "입력: ";
-		std::cin >> firstBP;
+		do {
+			std::cout << "1. 기존 메뉴에서 주문하기" << std::endl << "2. 나만의 커피 주문하기" << std::endl;
+			std::cout << "입력: ";
+			std::cin >> firstBP;
+			if (firstBP != 1 && firstBP != 2) {
+				std::cout << "잘못된 입력입니다. " << std::endl;
+			}
+			else {
+				break;
+			}
+		} while (firstBP == 1 || firstBP == 2);
 
 		if (firstBP == 2) { // 고객이 커피를 완전히 새로 만드는 경우(Func_dataSetting의 addCoffee 함수 따옴)
 			std::string newCoffeeName = "나만의 커피";
@@ -65,78 +73,112 @@ void coffeeOrderSelected(CaffeData* _cd) {
 
 			Coffee newCustomCoffee(newCoffeeName, newBean, newIngre);
 			clerk.addOrder(newCustomCoffee);
-			std::cout << "나만의 커피를 저장하시겠습니까?(Y/N): ";
-			char a = NULL;
-			std::cin >> a;
-			if (a == 'Y' || a == 'y') {
-				clerk.getData()->addCoffee(newCustomCoffee);
+
+			while(1){
+				char a = NULL;
+				std::cout << "나만의 커피를 저장하시겠습니까?(Y/N): ";
+				std::cin >> a;
+				if (a == 'Y') {
+					clerk.getData()->addCoffee(newCustomCoffee);
+					break;
+				}
+				else if (a == 'N') {
+					break;
+				}
+				else {
+					std::cout << "잘못된 입력입니다." << std::endl;
+				}
 			}
 		}
 		else { // 기존에 저장된 메뉴를 바탕으로 주문하는 경우
-			std::cout << std::endl << "주문할 커피의 번호를 입력해 주세요." << std::endl;
 			clerk.getData()->printDefaultCoffeeList();
-			std::cout << "입력: ";
-			std::cin >> orderedCoffeeNum;
+			std::cout << std::endl << "주문할 커피의 번호를 입력해 주세요." << std::endl;
+			while(1) {
+				std::cout << "입력: ";
+				if (orderedCoffeeNum > 0 || orderedCoffeeNum <= clerk.getData()->sizeofCoffeeList()) {
+					std::cin >> orderedCoffeeNum;
+
+					break;
+				}
+				std::cout << "잘못된 입력입니다." << std::endl;
+			}
 
 			Coffee newCoffee = clerk.getData()->getDefaultCoffee(orderedCoffeeNum - 1);
 
 			std::vector<CoffeeBean> *DefaultCoffeeBeanList = clerk.getData()->getDefaultCoffeeBeanList();
 			std::vector<Ingredient> *DefaultIngredientList = clerk.getData()->getDefaultIngredientList();
 
-			for ( ; ; ) {
-				std::cout << "원두를 추가하시겠습니까?(Y/N): ";
-				std::cin >> secondBP;
-				if (secondBP == 'N' || secondBP == 'n') {
-					break;
-				}
-
-				checkCustom = true;
-				clerk.getData()->printDefaultCoffeeBeanList();
-				std::cout << "입력: ";
+			clerk.getData()->printDefaultCoffeeBeanList();
+			do {
+				std::cout << "추가할 원두 번호를 입력해주세요(다 추가했으면 0): ";
 				std::cin >> optionalCoffeeBeanNum;
-
-				newCoffee.addBeanList(&DefaultCoffeeBeanList->at(optionalCoffeeBeanNum - 1));
-			}
-
-			for ( ; ; ) {
-				std::cout << "첨가물을 추가하시겠습니까?(Y/N): ";
-				std::cin >> thirdBP;
-				if (thirdBP == 'N' || thirdBP == 'n') {
+				if (optionalCoffeeBeanNum < 0 || optionalCoffeeBeanNum > clerk.getData()->sizeofCoffeeBeanList()) {
+					std::cout << "잘못된 입력입니다" << std::endl;
+					continue;
+				}
+				else if (optionalCoffeeBeanNum == 0) {
 					break;
 				}
+				else {
+					checkCustom = true;
+					newCoffee.addBeanList(&DefaultCoffeeBeanList->at(optionalCoffeeBeanNum - 1));
+				}
+			} while (optionalCoffeeBeanNum != 0);
 
-				checkCustom = true;
-				clerk.getData()->printDefaultIngredientList();
-				std::cout << "입력: ";
+			clerk.getData()->printDefaultIngredientList();
+			do {
+				std::cout << "추가할 첨가물 번호를 입력해주세요(다 추가했으면 0): ";
 				std::cin >> optionalIngreNum;
-				
-				newCoffee.addIngreList(&DefaultIngredientList->at(optionalIngreNum - 1));
-			}
+				if (optionalIngreNum < 0 || optionalIngreNum > clerk.getData()->sizeofIngredientList()) {
+					std::cout << "잘못된 입력입니다" << std::endl;
+				}
+				else if (optionalIngreNum == 0) {
+					break;
+				}
+				else {
+					checkCustom = true;
+					newCoffee.addIngreList(&DefaultIngredientList->at(optionalIngreNum - 1));
+				}
+			} while (optionalIngreNum != 0);
 
 			if (checkCustom) {
-				std::cout << std::endl << "기본 메뉴에서 변동이 있는 상품이 존재합니다." << std::endl << "이 상품을 저장하시겠습니까?(Y/N): ";
-				std::cin >> fourthBP;
-				if (fourthBP == 'Y' || fourthBP == 'y') {
+				while(1) {
+					std::cout << std::endl << "기본 메뉴에서 변동이 있는 상품이 존재합니다." << std::endl << "이 상품을 저장하시겠습니까?(Y/N): ";
+					std::cin >> secondBP;
 
+					if (secondBP == 'Y') {
+						std::string newCoffeeName;
+						std::cout << "추가할 커피의 이름을 입력해주세요: ";
+						std::cin >> newCoffeeName;
+						newCoffee.setName(newCoffeeName);
+						clerk.saveCustom(newCoffee);
+						break;
+					}
+					else if (secondBP == 'N') {
+						break;
+					}
+					else {
+						std::cout << "잘못된 입력입니다" << std::endl;
+					}
 
-					std::string _newCoffeeName;
-					std::cout << "추가할 커피의 이름을 입력해주세요: ";
-					std::cin >> _newCoffeeName;
-					newCoffee.setName(_newCoffeeName);
-					//Coffee _newCoffee = Coffee(_newCoffeeName, clerk.getOrderedList().at(i).getBeanList(), clerk.getOrderedList().at(i).getIngreList());
-					clerk.saveCustom(newCoffee);
 				}
 			}
-
 			clerk.addOrder(newCoffee);
+		}
 
-			std::cout << "주문을 계속 하시겠습니까?(Y/N): ";
-			std::cin >> fifthBP;
-			if (fifthBP == 'N' || fifthBP == 'n') {
+		std::cout << "주문을 계속 하시겠습니까?(Y/N): ";
+		std::cin >> thirdBP;
+		while(1){
+			if (thirdBP == 'N') {
+				clerk.makeBill();
+				return;
+			}
+			else if (thirdBP == 'Y') {
 				break;
+			}
+			else {
+				std::cout << "잘못된 입력입니다" << std::endl;
 			}
 		}
 	}
-
-	clerk.makeBill();
 }
