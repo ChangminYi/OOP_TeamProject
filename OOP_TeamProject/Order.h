@@ -13,9 +13,10 @@
 
 #ifndef ORDER
 
+//주문받은 내용을 나타내는 클래스
 class Order {
 private:
-	Coffee orderdCoffee;
+	Coffee orderedCoffee;
 	std::vector<CoffeeBean> optionalBean;
 	std::vector<Ingredient> optionalIngre;
 	unsigned int cost;
@@ -23,12 +24,19 @@ private:
 	void setCost();
 
 public:
-	void addOptionalBean(const CoffeeBean _newBean);
-	void addOptionalIngre(const Ingredient _newIngre);
+	//constructor
+	Order(const Coffee _coffee) : orderedCoffee(_coffee) {}
+	Order(const Coffee _coffee, const std::vector<CoffeeBean> _beanList, const std::vector<Ingredient> _ingreList) : orderedCoffee(_coffee), optionalBean(_beanList), optionalIngre(_ingreList) {}
 
-	void removeOptionalBean();
-	void removeOptionalIngre();
+	//adder
+	void addOptionalBean(const CoffeeBean _newBean);	//추가로 주문받은 커피콩 추가
+	void addOptionalIngre(const Ingredient _newIngre);	//추가로 주문받은 첨가물 추가
 
-	unsigned int getCost() const;
+	//remover
+	void removeOptionalBean();	//커피콩 삭제
+	void removeOptionalIngre();	//첨가물 삭제
+
+	//getter
+	unsigned int getCost() const;	//주문의 가격을 반환
 };
 #endif // !ORDER

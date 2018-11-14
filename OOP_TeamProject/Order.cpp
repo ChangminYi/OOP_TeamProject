@@ -1,7 +1,7 @@
 #include "Order.h"
 
 void Order::setCost() {
-	int temp = this->orderdCoffee.getCost();
+	int temp = this->orderedCoffee.getCost();
 
 	for (int i = 0; i < this->optionalBean.size(); i++) {
 		temp += this->optionalBean.at(i).getCost();
